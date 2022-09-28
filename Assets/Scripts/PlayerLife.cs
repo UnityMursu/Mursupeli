@@ -21,13 +21,14 @@ public class PlayerLife : MonoBehaviour
     }
 
     private void Die()
-    {
-        rigidBody.bodyType = RigidbodyType2D.Static;
-    }
+     {
+         rigidBody.bodyType = RigidbodyType2D.Static;
+        //animation
+        RestartLevel();
+     }
 
     private void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
-
