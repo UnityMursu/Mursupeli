@@ -5,16 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
-    private Rigidbody2D rigidBody;
+    private GameObject player;
+    private GameMaster gameMaster;
 
     private void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player");
+        gameMaster = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameObject player = GameObject.FindWithTag("Player");
+        
         GameObject enemy = GameObject.FindWithTag("Enemy");
 
         if (collision.gameObject.CompareTag("Enemy"))
@@ -28,13 +30,13 @@ public class PlayerLife : MonoBehaviour
 
     private void Die()
      {
-         rigidBody.bodyType = RigidbodyType2D.Static;
         //animation
-        RestartLevel();
+        LoadLastCheckpoint();
      }
 
-    private void RestartLevel()
+    private void LoadLastCheckpoint()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        player.transform.position = gameMaster.lastCheckpointPosition;
     }
+
 }
