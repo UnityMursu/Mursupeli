@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
-    private BoxCollider2D collider;
+    private CircleCollider2D collider;
     private SpriteRenderer spriteRenderer;
 
     [SerializeField] private LayerMask jumpableGround;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        collider = GetComponent<BoxCollider2D>();
+        collider = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
