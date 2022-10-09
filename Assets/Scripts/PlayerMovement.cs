@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidBody;
     private CircleCollider2D collider;
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
+
+
+
 
     [SerializeField] private LayerMask jumpableGround;
 
@@ -17,12 +21,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float jumpTimeCounter;
     private bool isJumping;
 
+    private enum movementState { idle, walk, jump, fall }
+
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         collider = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
             jumpTimeCounter = jumpTime;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
         }
+
+        animationState();
 
         if (Input.GetButton("Jump") && isJumping == true)
         {
@@ -65,5 +74,36 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+    private void animationState()
+    {
+        movementState state;
+
+        if (directionX > 0f)
+        {
+            state = movementState.walk;
+            spriteRenderer.flipX = false;
+        }
+        else if (directionX < 0f)
+        {
+            state = movementState.walk;
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            state = movementState.idle;
+        }
+
+        if (rigidBody.velocity.y > .1f)
+        {
+            state = movementState.jump;
+        }
+        else if (rigidBody.velocity.y < -.1f)
+        {
+            state = movementState.fall;
+        }
+
+        animator.SetInteger("state", (int)state);
     }
 }
