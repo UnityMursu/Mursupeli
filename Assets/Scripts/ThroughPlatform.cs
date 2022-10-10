@@ -7,6 +7,7 @@ public class ThroughPlatform : MonoBehaviour
 
     private PlatformEffector2D effector;
     public float waitTime;
+    private float downPressed;
 
     void Start() {
         effector = GetComponent<PlatformEffector2D>();
@@ -14,11 +15,15 @@ public class ThroughPlatform : MonoBehaviour
 
     void Update(){
         
-        if(Input.GetKeyUp(KeyCode.DownArrow)) {
+        
+        downPressed = Input.GetAxisRaw("Vertical");
+
+
+        if(downPressed >= 0) {
             waitTime = 0.5f;
         }
 
-        if(Input.GetKey(KeyCode.DownArrow)){
+        if(downPressed < 0){
             if(waitTime <= 0) {
                 effector.rotationalOffset = 180f;
                 waitTime = 0.5f;
@@ -28,7 +33,7 @@ public class ThroughPlatform : MonoBehaviour
             }
         }
 
-        if(Input.GetKey(KeyCode.Space)) {
+        if(Input.GetButtonDown("Jump")) {
             effector.rotationalOffset = 0;
         }
 
