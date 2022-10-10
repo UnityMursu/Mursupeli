@@ -14,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Level
+  - Interactable Terrain
   - 
   - 
   - 
@@ -41,9 +41,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 1667904951
+  - name: BackGround
+    uniqueID: 1865231147
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ForeGround
+    uniqueID: 3425039657
     locked: 0

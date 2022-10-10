@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
-    private BoxCollider2D collider;
+    private CircleCollider2D collider;
     private SpriteRenderer spriteRenderer;
 
     [SerializeField] private LayerMask jumpableGround;
@@ -13,12 +13,15 @@ public class PlayerMovement : MonoBehaviour
     private float directionX;
     [SerializeField] private float movementSpeed = 0f;
     [SerializeField] private float jumpForce = 14f;
+    [SerializeField] public float jumpTime = 0.35f;
+    [SerializeField] public float jumpTimeCounter;
+    private bool isJumping;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        collider = GetComponent<BoxCollider2D>();
+        collider = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -32,9 +35,31 @@ public class PlayerMovement : MonoBehaviour
         //jump
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
         }
 
+        if (Input.GetButton("Jump") && isJumping == true)
+        {
+            if (jumpTimeCounter > 0)
+            {
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+                jumpTimeCounter -= Time.deltaTime;
+            }
+
+            else
+            {
+                isJumping = false;
+            }
+   
+        }
+        
+            if (Input.GetButtonUp("Jump"))
+            {
+                isJumping = false;
+            }
+            
     }
 
     private bool IsGrounded()
