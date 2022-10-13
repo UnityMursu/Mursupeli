@@ -16,19 +16,26 @@ public class PlayerLife : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        GameObject enemy = GameObject.FindWithTag("Enemy");
+        bool isPlayerAbove = player.transform.position.y >= collision.otherCollider.transform.position.y;
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        switch (collision.gameObject.tag)
         {
-            if (player.transform.position.y <= enemy.transform.position.y)
-            {
+            case "Enemy":
+                if (isPlayerAbove)
+                {
+                    Destroy(collision.otherCollider);
+                }
+                else {
+                    Die();
+                }
+                break;
+            case "Porcupine":
                 Die();
-            }
+                break;
         }
     }
 
-    private void Die()
+    public void Die()
      {
         //animation
         LoadLastCheckpoint();

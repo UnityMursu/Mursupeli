@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Goal
+  - GM
+  - Porcupine
   layers:
   - Default
   - TransparentFX
