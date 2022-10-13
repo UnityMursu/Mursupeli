@@ -3,12 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
   tags:
+  - Clam
+  - GM
   - Enemy
   - Goal
-  - GM
-  - Porcupine
   layers:
   - Default
   - TransparentFX
@@ -16,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Jumpable Ground
   - 
   - 
   - 
@@ -43,6 +42,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2344765187
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 1897021091
+    locked: 0
+  - name: UI
+    uniqueID: 2050749055
     locked: 0

@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level selector.unity
     guid: d820f6769eeea1546ad4956233ae71f9
   - enabled: 1
-    path: Assets/Scenes/SavanniTesti(Mangusti).unity
-    guid: 96308b3b2f9ce914da153d8ff25fdb3c
+    path: "Assets/Scenes/Kentt\xE4 1 - Savanni.unity"
+    guid: 966b7589513c5de4287ee387f51dbfbd
   m_configObjects: {}
