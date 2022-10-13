@@ -4,6 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags: []
+  tags:
+  - Enemy
+  - Goal
+  - GM
+  - Porcupine
   layers:
   - Default
   - TransparentFX
