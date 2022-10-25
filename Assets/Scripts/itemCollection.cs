@@ -21,6 +21,7 @@ public class itemCollection : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Debug.Log("PowerUp");
+            GetComponent<SpriteRenderer>().color = Color.blue;
         }
     }
 }
