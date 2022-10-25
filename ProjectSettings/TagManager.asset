@@ -8,6 +8,8 @@ TagManager:
   - GM
   - Enemy
   - Goal
+  - Powerup
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -17,5 +17,11 @@ public class itemCollection : MonoBehaviour
             clams++;
             clamText.text = clams.ToString();
         }
+        if (collision.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(collision.gameObject);
+            Debug.Log("PowerUp");
+            GetComponent<SpriteRenderer>().color = Color.blue;
+        }
     }
 }

@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float jumpTime = 0.35f;
     [SerializeField] public float jumpTimeCounter;
     private bool isJumping;
+    private bool facingRight = true;
 
     private enum movementState { idle, walk, jump, fall }
 
@@ -77,15 +78,15 @@ public class PlayerMovement : MonoBehaviour
     {
         movementState state;
 
-        if (directionX > 0f)
+        if (directionX > 0f && !facingRight)
         {
             state = movementState.walk;
-            spriteRenderer.flipX = false;
+            Flip();
         }
-        else if (directionX < 0f)
+        else if (directionX < 0f && facingRight)
         {
             state = movementState.walk;
-            spriteRenderer.flipX = true;
+            Flip();
         }
         else
         {
@@ -103,4 +104,14 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetInteger("state", (int)state);
     }
+
+    private void Flip()
+    {
+        // Flip the way the player and ice point are facing
+        facingRight = !facingRight;
+
+        transform.Rotate(0f, 180f, 0f);
+       
+    }
+
 }
