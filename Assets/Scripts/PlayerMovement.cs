@@ -113,16 +113,12 @@ public class PlayerMovement : MonoBehaviour
         if (directionX > 0f && !facingRight)
         {
             Flip();
-            Debug.Log("lol");
         }
         else if (directionX < 0f && facingRight)
         {
             Flip();
         }
-        else
-        {
-            Debug.Log("not walking");
-        }
+       
 
     }
 
