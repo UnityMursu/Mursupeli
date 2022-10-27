@@ -8,14 +8,19 @@ public class IceShot : MonoBehaviour
     public GameObject ice;
     public itemCollection items;
 
+
     // Update is called once per frame
     void Update()
     {
+        
         if (items.isPowerUp)
         {
             if (Input.GetButtonDown("Fire1"))
             {
                 Shoot();
+                items.ammo--;
+                Debug.Log(items.ammo);
+                items.iceText.text = "Ammo: " + items.ammo.ToString();
             }
 
             void Shoot()
@@ -24,11 +29,12 @@ public class IceShot : MonoBehaviour
 
             }
         }
-        else
+      
+        if (items.ammo == 0)
         {
-            Debug.Log("No PowerUp");
+            items.isPowerUp = false;
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
-
 
     }
 }
