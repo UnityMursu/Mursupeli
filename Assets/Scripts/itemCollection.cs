@@ -6,8 +6,14 @@ using UnityEngine.UI;
 public class itemCollection : MonoBehaviour
 {
     private int clams = 0;
+    public bool isPowerUp;
 
     [SerializeField] private Text clamText;
+
+    void start()
+    {
+        isPowerUp = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,6 +27,7 @@ public class itemCollection : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Debug.Log("PowerUp");
+            isPowerUp = true;
             GetComponent<SpriteRenderer>().color = Color.blue;
         }
     }
