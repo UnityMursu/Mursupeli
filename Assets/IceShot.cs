@@ -6,20 +6,34 @@ public class IceShot : MonoBehaviour
 {
     public Transform icePoint;
     public GameObject ice;
+    public itemCollection items;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        
+        if (items.isPowerUp)
         {
-            Shoot();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+                items.ammo--;
+                Debug.Log(items.ammo);
+                items.iceText.text = "Ammo: " + items.ammo.ToString();
+            }
+
+            void Shoot()
+            {
+                Instantiate(ice, icePoint.position, icePoint.rotation);
+
+            }
         }
-
-        void Shoot()
+      
+        if (items.ammo == 0)
         {
-            Instantiate(ice, icePoint.position, icePoint.rotation);
-
-
+            items.isPowerUp = false;
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
 
     }
