@@ -10,6 +10,7 @@ TagManager:
   - Goal
   - Powerup
   - Ground
+  - Unkillable
   layers:
   - Default
   - TransparentFX
