@@ -6,20 +6,29 @@ public class IcePower : MonoBehaviour
 {
     [SerializeField] private Transform icePoint;
     [SerializeField] private GameObject ice;
+    public itemCollection items;
+    
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (items.isPowerUp)
         {
-            Shoot();
-        }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+            }
 
-        void Shoot()
+            void Shoot()
+            {
+                Instantiate(ice, icePoint.position, icePoint.rotation);
+
+                Debug.Log("lol");
+            }
+
+        } else
         {
-            Instantiate(ice, icePoint.position, icePoint.rotation);
-
-
+            Debug.Log("No PowerUp");
         }
 
     }

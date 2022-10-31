@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float jumpTime = 0.35f;
     [SerializeField] public float jumpTimeCounter;
     private bool isJumping;
-    private bool facingRight = true;
+    public bool facingRight;
 
     private enum movementState { idle, walk, jump, fall }
 
@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         collider = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        facingRight = true;
     }
 
     // Update is called once per frame
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         animationState();
+        playerFlip();
 
         if (Input.GetButton("Jump") && isJumping == true)
         {
@@ -78,15 +80,13 @@ public class PlayerMovement : MonoBehaviour
     {
         movementState state;
 
-        if (directionX > 0f && !facingRight)
+        if (directionX > 0f)
         {
             state = movementState.walk;
-            Flip();
         }
-        else if (directionX < 0f && facingRight)
+        else if (directionX < 0f)
         {
             state = movementState.walk;
-            Flip();
         }
         else
         {
@@ -103,6 +103,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
         animator.SetInteger("state", (int)state);
+    }
+
+    private void playerFlip()
+    {
+        if (directionX > 0f && !facingRight)
+        {
+            Flip();
+        }
+        else if (directionX < 0f && facingRight)
+        {
+            Flip();
+        }
+       
+
     }
 
     private void Flip()
