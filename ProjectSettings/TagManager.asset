@@ -10,6 +10,7 @@ TagManager:
   - Goal
   - Powerup
   - Ground
+  - Hidden
   - Unkillable
   layers:
   - Default
