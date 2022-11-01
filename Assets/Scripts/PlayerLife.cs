@@ -29,7 +29,7 @@ public class PlayerLife : MonoBehaviour
                     Die();
                 }
                 break;
-            case "Porcupine":
+            case "Unkillable":
                 Die();
                 break;
         }
