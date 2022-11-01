@@ -17,6 +17,7 @@ public class Fadeout : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
+            Debug.Log("I'm hidden");
             StartCoroutine(FadeAlphaToZero(GetComponent<SpriteRenderer>(), fadeOutTime));
         }
     }

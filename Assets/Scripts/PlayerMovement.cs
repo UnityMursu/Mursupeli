@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
-    private CircleCollider2D collider;
+    private BoxCollider2D collider;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
 
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        collider = GetComponent<CircleCollider2D>();
+        collider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         facingRight = true;
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         rigidBody.velocity = new Vector2(directionX * movementSpeed, rigidBody.velocity.y);
 
         //jump
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") && IsGrounded() && Input.GetAxisRaw("Vertical") == 0)
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;

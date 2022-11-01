@@ -18,22 +18,22 @@ public class ThroughPlatform : MonoBehaviour
         
         downPressed = Input.GetAxisRaw("Vertical");
 
-
-        if(downPressed >= 0) {
-            waitTime = 0.5f;
+        if(downPressed >= 0 ) {
+            //waitTime = 0.0f;
+            waitTime -= Time.deltaTime;
         }
 
-        if(downPressed < 0){
-            if(waitTime <= 0) {
+        if(downPressed < 0 && Input.GetButtonDown("Jump")){
+            Debug.Log("jumpdown");
+            //if(waitTime <= 0) {
                 effector.rotationalOffset = 180f;
-                waitTime = 0.5f;
+                waitTime = 0.15f;
 
-            } else {
-                waitTime -= Time.deltaTime;
-            }
+            //} else {
+            //}
         }
 
-        if(Input.GetButtonDown("Jump")) {
+        if(/*Input.GetButtonDown("Jump") && */downPressed >= 0 && waitTime <= 0.0f) {
             effector.rotationalOffset = 0;
         }
 

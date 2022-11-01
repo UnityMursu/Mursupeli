@@ -10,6 +10,7 @@ TagManager:
   - Goal
   - Powerup
   - Ground
+  - Hidden
   layers:
   - Default
   - TransparentFX
