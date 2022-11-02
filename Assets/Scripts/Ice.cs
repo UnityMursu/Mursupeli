@@ -31,7 +31,13 @@ public class Ice : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
+        // Destroy ice shot when it collides with a trap
+        if (info.gameObject.CompareTag("Trap"))
+        {
+            Destroy(gameObject);
+        }
+
     }
 
 }

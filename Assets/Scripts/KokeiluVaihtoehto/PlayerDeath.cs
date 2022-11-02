@@ -17,10 +17,15 @@ public class PlayerDeath : MonoBehaviour
     {
         
         GameObject enemy = GameObject.FindWithTag("Enemy");
+        GameObject trap = GameObject.FindWithTag("Trap");
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
                 Die();
+        }
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            Die();
         }
     }
 
