@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - Hidden
   - Unkillable
+  - Trap
   layers:
   - Default
   - TransparentFX
