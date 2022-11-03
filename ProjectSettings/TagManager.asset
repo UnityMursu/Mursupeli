@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - Hidden
   - Unkillable
+  - Climbable
   layers:
   - Default
   - TransparentFX
