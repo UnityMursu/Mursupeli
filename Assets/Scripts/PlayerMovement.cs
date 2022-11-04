@@ -38,7 +38,18 @@ public class PlayerMovement : MonoBehaviour
         directionX = Input.GetAxisRaw("Horizontal");
         rigidBody.velocity = new Vector2(directionX * movementSpeed, rigidBody.velocity.y);
 
-        //jump
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (IsGrounded())
+            {
+                isJumping = true;
+                jumpTimeCounter = jumpTime;
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+            }
+        }
+
+        //jump a
         if (Input.GetButtonDown("Jump") && IsGrounded() && Input.GetAxisRaw("Vertical") == 0)
         {
             isJumping = true;
@@ -49,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         animationState();
         playerFlip();
 
-        if (Input.GetButton("Jump") && isJumping == true)
+        if (Input.GetButton("Jump") && isJumping == true )
         {
             if (jumpTimeCounter > 0)
             {
