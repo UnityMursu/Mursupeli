@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StickyPlatform : MonoBehaviour
 {
-
+    //makes the player stay on the platform (etc.) while it moves
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Player")
@@ -13,6 +13,7 @@ public class StickyPlatform : MonoBehaviour
         }
     }
 
+    //player is able to move away from the platform, platform needs layer jumbable ground
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Player")
