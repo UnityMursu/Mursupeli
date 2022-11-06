@@ -8,42 +8,37 @@ public class MoveBtwnAttack : MonoBehaviour
     private Rigidbody2D rigidBody;
 
     [SerializeField] private float speed;
-    [SerializeField] private Vector3[] positions;
     private bool playerInRange;
     private Vector3 startPosition;
-    private float directionX;
-    private int index;
     [SerializeField] private float moveDistance;
     private bool turnAround;
     private float waitTime;
     private bool canMove;
+    ScorptionAttack attackPoint;
+    private float attackTimer;
+    Animator scorpAnimator;
 
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        playerInRange = false;
         startPosition = transform.position;
-        turnAround = false;
-        waitTime = 2.5f;
-        Debug.Log(startPosition);
-        canMove = true;
+        waitTime = 0f;
+        attackTimer = 1f;
+        scorpAnimator = gameObject.GetComponent<Animator>();
+        attackPoint = gameObject.GetComponentInChildren<ScorptionAttack>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.position = Vector2.MoveTowards(transform.position, positions[index], Time.deltaTime * speed);
-        
-        //rigidBody.velocity = new Vector2(directionX * speed, rigidBody.velocity.y);
-        // startPosition.x + moveDistance >= transform.position.x && 
+        // Will move for given distance at given speed until told not to move
         if(canMove == true){
-            Debug.Log("player not in range");
             if (turnAround == false){
                 transform.position = transform.position + new Vector3(speed * Time.deltaTime, 0, 0);
-                Debug.Log("moving");
                 if(startPosition.x + moveDistance < transform.position.x){
                     turnAround = true;
+                    transform.Rotate(0f, 180f, 0f);
                 }
             }
             else if(turnAround == true) 
@@ -51,45 +46,47 @@ public class MoveBtwnAttack : MonoBehaviour
                 transform.position = transform.position + new Vector3(-1 *speed * Time.deltaTime,0,0);
                 if(startPosition.x > transform.position.x){
                     turnAround = false;
+                    transform.Rotate(0f, 180f, 0f);
                 }
             }
-            /*if (transform.position == positions[index]) {
-                if (index == positions.Length - 1){
-                    index = 0;
-                    
-                    transform.Rotate(0f, 180f, 0f);
-                }
-                else {
-                    index++;
-                    transform.Rotate(0f, 180f, 0f);
-                }
-            }*/
         }
         
-        
-            waitTime -= Time.deltaTime;
-            if(playerInRange == false){
-                if(waitTime <= 0)
-                {
-                    canMove = true;
-                }
+        //Will call attack function every second and use attack animation until wait time is over
+        if(waitTime > 0) {
+            attackTimer -= Time.deltaTime;
+            scorpAnimator.ResetTrigger("Attack");
+            if(attackTimer < 0){
+                attackPoint.Attack();
+                attackTimer = 1f;
+                scorpAnimator.SetTrigger("Attack");
             }
+        }
+        
+        //wait time will count down if player is not in range
+        if(playerInRange == false){
+            waitTime -= Time.deltaTime;
+            if(waitTime <= 0)
+            {
+                canMove = true;
+            }
+        }
 
     }
 
+    //Checks if something comes in collision range. Tells not to move if it is player inside triggers collision range
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             playerInRange = true;
             canMove = false;
-            Debug.Log("Player in range");
             waitTime = 2.5f;
         }
     }
+
+    //If an object exits triggers collision range will check if it was player and act appropriately 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("player left");
         if (collision.gameObject.CompareTag("Player"))
         {
             waitTime = 2.5f;
