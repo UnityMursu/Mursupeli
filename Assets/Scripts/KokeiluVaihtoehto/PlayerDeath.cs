@@ -29,7 +29,7 @@ public class PlayerDeath : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
      {
         //animation
         LoadLastCheckpoint();
