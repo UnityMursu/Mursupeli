@@ -14,16 +14,17 @@ public class PlayerClimb : MonoBehaviour
     private float originalGravityScale;
 
     [SerializeField] private Rigidbody2D rigidBody;
-
+    
     private void Start()
     {
+        //saves original player gravityScale for later
         originalGravityScale = rigidBody.gravityScale;
     }
 
     private void Update()
     {
         vertical = Input.GetAxisRaw("Vertical");
-
+        //vertival = up or down buttons are held
         if (isTouchingWall && vertical != 0f)
         {
             isClimbing = true;
@@ -44,6 +45,7 @@ public class PlayerClimb : MonoBehaviour
         if (collision.CompareTag("Climbable"))
         {
             isTouchingWall = true;
+            //sets player gravity scale to zero and y velocity to zero
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
             rigidBody.gravityScale = 0f;
         }
@@ -51,11 +53,11 @@ public class PlayerClimb : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //set gravity to normal
         if (collision.CompareTag("Climbable"))
         {
             isTouchingWall = false;
             isClimbing = false;
+            //sets player gravity scale back to normal
             rigidBody.gravityScale = originalGravityScale;
         }
     }
