@@ -519,7 +519,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3073751036954666816, guid: 7ca192db77d55ea44933cad6b2f6ea0f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7ca192db77d55ea44933cad6b2f6ea0f, type: 3}
 --- !u!4 &167932512 stripped
 Transform:
@@ -536,6 +537,43 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3073751036954666875, guid: 7ca192db77d55ea44933cad6b2f6ea0f, type: 3}
   m_PrefabInstance: {fileID: 167932511}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &167932515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3073751036954666868, guid: 7ca192db77d55ea44933cad6b2f6ea0f, type: 3}
+  m_PrefabInstance: {fileID: 167932511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &167932516 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3073751035810333820, guid: 7ca192db77d55ea44933cad6b2f6ea0f, type: 3}
+  m_PrefabInstance: {fileID: 167932511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &167932517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167932515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11c31f46fee67846bc98e55df50c3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  groundCheckPoint: {fileID: 167932513}
+  wallCheckPoint: {fileID: 167932516}
+  circleRadius: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  jumpHeight: 2
+  player: {fileID: 698510772}
+  groundCheck: {fileID: 167932512}
+  boxSize: {x: 1, y: 1}
+  lineOfSight: {x: 4, y: 1}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1001 &170892180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2677,11 +2715,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2327217906218333770, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48.91
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 2327217906218333770, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.08
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 2327217906218333770, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5287,7 +5325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917585017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.46, y: -5.03, z: 0}
+  m_LocalPosition: {x: 43.4791, y: -5.0202, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5348,12 +5386,12 @@ SpriteRenderer:
   m_SortingLayerID: 1897021091
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1039245457, guid: e66bde4c41a9e2842a20ff2cca973e12, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b209bba9c1eb9094897ff14be08c853f, type: 3}
   m_Color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 7, y: 4}
+  m_Size: {x: 7.0381436, y: 4.019515}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5376,8 +5414,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 7, y: 4}
+    oldSize: {x: 8, y: 8}
+    newSize: {x: 7.0381436, y: 4.019515}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
