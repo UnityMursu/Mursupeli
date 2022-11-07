@@ -10,11 +10,11 @@ public class MoveBtwn2 : MonoBehaviour
     [SerializeField] private Vector3[] positions;
 
     private int index;
-    private SpriteRenderer m_Sprite;
+    //private SpriteRenderer m_Sprite;
 
     void Start()
     {
-        m_Sprite = GetComponent<SpriteRenderer>();
+        //m_Sprite = GetComponent<SpriteRenderer>();
 
     }
 
@@ -26,19 +26,12 @@ public class MoveBtwn2 : MonoBehaviour
         if (transform.position == positions[index]) {
             if (index == positions.Length - 1){
                 index = 0;
-                if (m_Sprite.flipX == true){
-                    m_Sprite.flipX = false;
-                } else {
-                    m_Sprite.flipX = true;
-                }
+                
+                transform.Rotate(0f, 180f, 0f);
             }
             else {
                 index++;
-                if (m_Sprite.flipX == true){
-                    m_Sprite.flipX = false;
-                } else {
-                    m_Sprite.flipX = true;
-                }
+                transform.Rotate(0f, 180f, 0f);
             }
         }
 
