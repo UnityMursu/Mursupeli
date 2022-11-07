@@ -56,9 +56,9 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody.velocity = new Vector2(directionX * movementSpeed, 0.0f);
         }
-        // Same movement speed on slopes as on normal ground
         else if (IsGrounded() && isOnSlope)
         {
+            // Same movement speed on slopes as on normal ground
             rigidBody.velocity = new Vector2(movementSpeed * slopeNormalPerpendicular.x * -directionX, movementSpeed * slopeNormalPerpendicular.y * -directionX);
         }
         else if (!IsGrounded())
