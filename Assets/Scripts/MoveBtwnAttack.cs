@@ -6,27 +6,26 @@ public class MoveBtwnAttack : MonoBehaviour
 {
     
     private Rigidbody2D rigidBody;
-
-    [SerializeField] private float speed;
-    private bool playerInRange;
-    private Vector3 startPosition;
     [SerializeField] private float moveDistance;
-    private bool turnAround;
+    [SerializeField] private float speed;
+    private float attackTimer;
     private float waitTime;
+    private Vector3 startPosition;
+    private bool playerInRange;
+    private bool turnAround;
     private bool canMove;
     ScorptionAttack attackPoint;
-    private float attackTimer;
     Animator scorpAnimator;
 
 
     void Start()
     {
+        attackPoint = gameObject.GetComponentInChildren<ScorptionAttack>();
+        scorpAnimator = gameObject.GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
-        waitTime = 0f;
         attackTimer = 1f;
-        scorpAnimator = gameObject.GetComponent<Animator>();
-        attackPoint = gameObject.GetComponentInChildren<ScorptionAttack>();
+        waitTime = 0f;
     }
 
     // Update is called once per frame

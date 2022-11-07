@@ -16,7 +16,7 @@ public class ScorptionAttack : MonoBehaviour
         playerDeath = GameObject.FindWithTag("Player").GetComponent<PlayerDeath>();
     }
 
-    //When Attack() is called, it creates temporary circle to check if player is in range. If player in range it calls Die() from playerdeath script
+    //When Attack() is called, it creates temporary circle to check if player is in range. If the player is in range it calls Die() from playerdeath script
     public void Attack()
     {
         Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(transform.position, attackRange, playerLayer);
