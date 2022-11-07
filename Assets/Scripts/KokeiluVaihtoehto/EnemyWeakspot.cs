@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyWeakspot : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject player = GameObject.FindWithTag("Player");
         GameObject enemy = GameObject.FindWithTag("Enemy");
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.GetComponent<BounceFromEnemy>())
         {
                 Destroy(transform.parent.gameObject);
         }

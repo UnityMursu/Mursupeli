@@ -12,16 +12,17 @@ TagManager:
   - Ground
   - Hidden
   - Unkillable
+  - Trap
   - Climbable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Jumpable Ground
-  - 
+  - Player
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 2344765187
+    locked: 0
+  - name: Background front
+    uniqueID: 3049737173
     locked: 0
   - name: Default
     uniqueID: 0
