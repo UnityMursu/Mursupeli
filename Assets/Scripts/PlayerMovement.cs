@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float directionX;
     [SerializeField] private float slopeCheckDistance;
     [SerializeField] private float movementSpeed = 0f;
+    [SerializeField] public float slideSpeed = 10f;
     [SerializeField] private float jumpForce = 14f;
     [SerializeField] public float jumpTime = 0.35f;
     [SerializeField] public float jumpTimeCounter;
@@ -50,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //movement          GetAxis is more smooth
         directionX = Input.GetAxisRaw("Horizontal");
         //rigidBody.velocity = new Vector2(directionX * movementSpeed, rigidBody.velocity.y);
@@ -108,11 +110,19 @@ public class PlayerMovement : MonoBehaviour
    
         }
         
-            if (Input.GetButtonUp("Jump"))
-            {
-                isJumping = false;
-            }
+        if (Input.GetButtonUp("Jump"))
+        {
+            isJumping = false;
+        }
             
+        if (Input.GetButton("Vertical") && isOnSlope)
+        {
+            Debug.Log("slide");
+            rigidBody.sharedMaterial = noFriction;
+            rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -2, slideSpeed * slopeNormalPerpendicular.y * -2);
+            
+            //rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -directionX, slideSpeed * slopeNormalPerpendicular.y * -directionX);
+        }
     }
     private void FixedUpdate()
     {

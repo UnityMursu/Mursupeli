@@ -2078,6 +2078,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2327217906218333774, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
+      propertyPath: slideSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327217906218333774, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
       propertyPath: fullFriction
       value: 
       objectReference: {fileID: 6200000, guid: 2ebaa608a3818064a8cce3bf754cc48f, type: 2}
