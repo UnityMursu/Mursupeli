@@ -41,7 +41,7 @@ public class PlayerLife : MonoBehaviour
         LoadLastCheckpoint();
      }
 
-    private void LoadLastCheckpoint()
+    public void LoadLastCheckpoint()
     {
         player.transform.position = gameMaster.lastCheckpointPosition;
     }
