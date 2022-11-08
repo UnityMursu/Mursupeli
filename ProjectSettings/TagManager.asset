@@ -14,6 +14,7 @@ TagManager:
   - Unkillable
   - Trap
   - Climbable
+  - Pit
   layers:
   - Default
   - TransparentFX

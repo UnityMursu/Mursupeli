@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rigidBody;
+    public Rigidbody2D rigidBody;
     private BoxCollider2D collider;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 14f;
     [SerializeField] public float jumpTime = 0.35f;
     [SerializeField] public float jumpTimeCounter;
+    [SerializeField] public float normalGravity = 3f;
+    [SerializeField] public float pitGravity = 25f;
     [SerializeField] private PhysicsMaterial2D noFriction;
     [SerializeField] private PhysicsMaterial2D fullFriction;
     private bool isJumping;
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private float slopeDownAngle;
     private float slopeDownAngleOld;
     private float slopeSideAngle;
+    
 
     private bool isOnSlope;
 
@@ -181,7 +184,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody.sharedMaterial = noFriction;
         }
+
     }
+
+    
 
     private bool IsGrounded()
     {
