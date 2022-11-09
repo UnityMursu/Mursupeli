@@ -114,14 +114,25 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
-            
+        
+        
         if (Input.GetButton("Vertical") && isOnSlope)
         {
+            // Make the player slide down slopes when down is pressed
             Debug.Log("slide");
             rigidBody.sharedMaterial = noFriction;
             rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -2, slideSpeed * slopeNormalPerpendicular.y * -2);
             
             //rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -directionX, slideSpeed * slopeNormalPerpendicular.y * -directionX);
+        }
+        else if (isOnSlope && directionX == 0.0f)
+        {
+            // Add friction to prevent the player from sliding down when standing still on slopes
+            rigidBody.sharedMaterial = fullFriction;
+        }
+        else
+        {
+            rigidBody.sharedMaterial = noFriction;
         }
     }
     private void FixedUpdate()
@@ -185,15 +196,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawRay(hit.point, hit.normal, Color.green);
         }
 
-        // Add friction to prevent the player from sliding down when standing still on slopes
-        if (isOnSlope && directionX == 0.0f)
-        {
-            rigidBody.sharedMaterial = fullFriction;
-        }
-        else
-        {
-            rigidBody.sharedMaterial = noFriction;
-        }
+        
 
     }
 
