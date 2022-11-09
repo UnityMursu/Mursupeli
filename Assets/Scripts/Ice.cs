@@ -38,6 +38,12 @@ public class Ice : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // Destroy ice shot when it collides with a Pit
+        if (info.gameObject.CompareTag("Pit"))
+        {
+            Destroy(gameObject);
+        }
+
     }
 
 }
