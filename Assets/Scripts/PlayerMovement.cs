@@ -23,7 +23,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PhysicsMaterial2D noFriction;
     [SerializeField] private PhysicsMaterial2D fullFriction;
     private bool isJumping;
+    private bool isSliding;
     public bool facingRight;
+    public bool invincible;
 
     private Vector2 colliderSize;
     private Vector2 slopeNormalPerpendicular;
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         facingRight = true;
+        isSliding = false;
         colliderSize = collider.size;
     }
 
@@ -71,9 +74,32 @@ public class PlayerMovement : MonoBehaviour
             rigidBody.velocity = new Vector2(directionX * movementSpeed , rigidBody.velocity.y);
         }
 
-        
 
-        if (Input.GetButtonDown("Jump"))
+
+        if (Input.GetButton("Fire2") && isOnSlope)
+        {
+            // Make the player slide down slopes when down is pressed
+            rigidBody.sharedMaterial = noFriction;
+            rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -2, slideSpeed * slopeNormalPerpendicular.y * -2);
+            isSliding = true;
+            invincible = true;
+            //rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -directionX, slideSpeed * slopeNormalPerpendicular.y * -directionX);
+        }
+        else if (isOnSlope && directionX == 0.0f)
+        {
+            // Add friction to prevent the player from sliding down when standing still on slopes
+            rigidBody.sharedMaterial = fullFriction;
+            isSliding = false;
+            invincible = false;
+        }
+        else
+        {
+            rigidBody.sharedMaterial = noFriction;
+            isSliding = false;
+            invincible = false;
+        }
+
+        if (Input.GetButtonDown("Jump") && !isSliding)
         {
             if (IsGrounded())
             {
@@ -84,18 +110,27 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //jump a
-        if (Input.GetButtonDown("Jump") && IsGrounded() && Input.GetAxisRaw("Vertical") == 0)
+        if (Input.GetButtonDown("Jump") && IsGrounded() && Input.GetAxisRaw("Vertical") == 0 && !isSliding)
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+        } 
+        else if (isSliding && Input.GetButton("Jump"))
+        {
+            Debug.Log("slidejump");
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            //rigidBody.velocity += new Vector2(rigidBody.velocity.x, jumpForce);
+            //rigidBody.AddForce(new Vector2(slideSpeed * 10f, slideSpeed * 10f));
+            rigidBody.velocity = transform.right * slideSpeed;  
         }
 
         animationState();
         playerFlip();
         
 
-        if (Input.GetButton("Jump") && isJumping == true )
+        if (Input.GetButton("Jump") && isJumping == true && !isSliding)
         {
             if (jumpTimeCounter > 0)
             {
@@ -113,26 +148,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
         {
             isJumping = false;
-        }
-        
-        
-        if (Input.GetButton("Vertical") && isOnSlope)
-        {
-            // Make the player slide down slopes when down is pressed
-            Debug.Log("slide");
-            rigidBody.sharedMaterial = noFriction;
-            rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -2, slideSpeed * slopeNormalPerpendicular.y * -2);
-            
-            //rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -directionX, slideSpeed * slopeNormalPerpendicular.y * -directionX);
-        }
-        else if (isOnSlope && directionX == 0.0f)
-        {
-            // Add friction to prevent the player from sliding down when standing still on slopes
-            rigidBody.sharedMaterial = fullFriction;
-        }
-        else
-        {
-            rigidBody.sharedMaterial = noFriction;
         }
     }
     private void FixedUpdate()

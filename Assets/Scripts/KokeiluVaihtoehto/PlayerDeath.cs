@@ -6,6 +6,7 @@ public class PlayerDeath : MonoBehaviour
 {
     private GameObject player;
     private GameMaster gameMaster;
+    public PlayerMovement playerScript;
 
     private void Start()
     {
@@ -19,9 +20,13 @@ public class PlayerDeath : MonoBehaviour
         GameObject enemy = GameObject.FindWithTag("Enemy");
         GameObject trap = GameObject.FindWithTag("Trap");
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && !playerScript.invincible)
         {
                 Die();
+        }
+        if (collision.gameObject.CompareTag("Enemy") && playerScript.invincible)
+        {
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Trap"))
         {
