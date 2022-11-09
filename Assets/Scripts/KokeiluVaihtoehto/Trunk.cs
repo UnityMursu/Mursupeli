@@ -28,7 +28,6 @@ public class Trunk : MonoBehaviour
             goingDown = false;
         }
 
-        Debug.Log(transform.localEulerAngles.z);
         if(transform.localEulerAngles.z < 340 && transform.localEulerAngles.z > 290)
         {
             goingDown = true;
