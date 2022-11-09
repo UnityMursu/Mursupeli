@@ -11,6 +11,7 @@ public class PlayerClimb : MonoBehaviour
     private float speed = 8f;
     private float vertical;
     private bool isClimbing;
+
     private float originalGravityScale;
 
     [SerializeField] private Rigidbody2D rigidBody;
@@ -24,7 +25,7 @@ public class PlayerClimb : MonoBehaviour
     private void Update()
     {
         vertical = Input.GetAxisRaw("Vertical");
-        //vertival = up or down buttons are held
+        //vertical = up or down buttons are held
         if (isTouchingWall && vertical != 0f)
         {
             isClimbing = true;

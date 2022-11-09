@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Kentt\xE4 1 - Savanni.unity"
     guid: 966b7589513c5de4287ee387f51dbfbd
+  - enabled: 1
+    path: "Assets/Scenes/Kentt\xE4 2 - Aavikko.unity"
+    guid: a89ab78125f5b9c4e8035e26634d38c3
+  - enabled: 1
+    path: "Assets/Scenes/Kentt\xE4 3 - Viidakkovuoristo.unity"
+    guid: 4fe61e3902a3f7b4c8607f609a3ff9cc
   m_configObjects: {}
