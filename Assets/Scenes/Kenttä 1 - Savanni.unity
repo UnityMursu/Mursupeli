@@ -2737,6 +2737,10 @@ PrefabInstance:
       propertyPath: slopeCheckDistance
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2544388743194153317, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 1111817512}
     - target: {fileID: 5127825966567104759, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -2759,6 +2763,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
+--- !u!114 &1111817512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2327217906218333774, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
+  m_PrefabInstance: {fileID: 1111817511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e390a1ce7991fc43a5409c1a69386fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1124893441
 PrefabInstance:
   m_ObjectHideFlags: 0
