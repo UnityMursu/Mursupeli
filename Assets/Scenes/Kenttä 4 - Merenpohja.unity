@@ -185,6 +185,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6234943778403271334, guid: 992faced39a89584396434659542d161, type: 3}
   m_PrefabInstance: {fileID: 74656462}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &153177594 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5021772371249252010, guid: dd3002c306279d84daf52588a4d1b93a, type: 3}
+  m_PrefabInstance: {fileID: 939400615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &291283628 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2327217906218333773, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
@@ -216,6 +227,18 @@ MonoBehaviour:
   jumpTimeCounter: 0
   facingRight: 0
   doubleJump: 0
+--- !u!114 &291283654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291283628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c493e235224889e48906f9d2a72cb11e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &368947052
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1022,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &599931714 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5021772369784078779, guid: dd3002c306279d84daf52588a4d1b93a, type: 3}
+  m_PrefabInstance: {fileID: 939400615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &673485561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1348,11 +1382,15 @@ PrefabInstance:
     - target: {fileID: 6578016210943632656, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
       propertyPath: iceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 599931714}
     - target: {fileID: 6578016210943632656, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
       propertyPath: clamText
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1352117022}
+=======
+      objectReference: {fileID: 153177594}
+>>>>>>> 3e006e222bee34a2c941b9359f52eb95344ad779
     - target: {fileID: 6803690831906698622, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
       propertyPath: bounceForce
       value: 800
@@ -1360,6 +1398,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2327217906218333774, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
     - {fileID: 4165482846851269157, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
+    - {fileID: 2544388743194153317, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
 --- !u!1 &880621485
 GameObject:
