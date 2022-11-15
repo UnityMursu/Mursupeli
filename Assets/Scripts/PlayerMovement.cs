@@ -39,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
 
     private enum movementState { idle, walk, jump, fall }
 
+    [SerializeField] private AudioSource jumpSfx;
+    [SerializeField] private AudioSource talkSfx;
+    [SerializeField] private AudioSource slideSfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +87,11 @@ public class PlayerMovement : MonoBehaviour
             rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -2, slideSpeed * slopeNormalPerpendicular.y * -2);
             isSliding = true;
             invincible = true;
+            if (Input.GetButtonDown("Fire2"))
+            {
+                slideSfx.Play();
+            } 
+            
             //rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -directionX, slideSpeed * slopeNormalPerpendicular.y * -directionX);
         }
         else if (isOnSlope && directionX == 0.0f)
@@ -91,12 +100,22 @@ public class PlayerMovement : MonoBehaviour
             rigidBody.sharedMaterial = fullFriction;
             isSliding = false;
             invincible = false;
+            //slideSfx.Stop();
+            if (Input.GetButtonUp("Fire2") || isJumping)
+            {
+                slideSfx.Stop();
+            }
         }
         else
         {
             rigidBody.sharedMaterial = noFriction;
             isSliding = false;
             invincible = false;
+            //slideSfx.Stop();
+            if (Input.GetButtonUp("Fire2") || isJumping)
+            {
+                slideSfx.Stop();
+            }
         }
 
         if (Input.GetButtonDown("Jump") && !isSliding)
@@ -106,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
                 isJumping = true;
                 jumpTimeCounter = jumpTime;
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+                jumpSfx.Play();
             }
         }
 
@@ -115,12 +135,14 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+            jumpSfx.Play();
         } 
         else if (isSliding && Input.GetButton("Jump"))
         {
             Debug.Log("slidejump");
             isJumping = true;
             jumpTimeCounter = jumpTime;
+            jumpSfx.Play();
             //rigidBody.velocity += new Vector2(rigidBody.velocity.x, jumpForce);
             //rigidBody.AddForce(new Vector2(slideSpeed * 10f, slideSpeed * 10f));
             rigidBody.velocity = transform.right * slideSpeed;  
@@ -148,6 +170,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
         {
             isJumping = false;
+        }
+
+        if (Input.GetButton("Fire3"))
+        {
+            talkSfx.Play();
         }
     }
     private void FixedUpdate()
