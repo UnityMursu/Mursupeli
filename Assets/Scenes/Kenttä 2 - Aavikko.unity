@@ -62507,7 +62507,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062999634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.15, y: 13.74, z: 0}
+  m_LocalPosition: {x: 5.74, y: 12.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62526,7 +62526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13358e2ce7988a04085461e0387ef7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0.3, y: 0.1}
+  parallaxEffectMultiplier: {x: 1, y: 0}
 --- !u!212 &2062999637
 SpriteRenderer:
   m_ObjectHideFlags: 0
