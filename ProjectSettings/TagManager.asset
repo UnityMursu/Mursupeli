@@ -15,6 +15,7 @@ TagManager:
   - Trap
   - Climbable
   - Pit
+  - Water
   layers:
   - Default
   - TransparentFX
