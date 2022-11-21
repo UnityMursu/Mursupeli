@@ -2845,7 +2845,7 @@ PrefabInstance:
       objectReference: {fileID: 1304343420}
     - target: {fileID: 6677117560365048810, guid: 562489e905c315b40a6892329af02a9d, type: 3}
       propertyPath: m_Name
-      value: PlayerCamera (1)
+      value: PlayerCamera
       objectReference: {fileID: 0}
     - target: {fileID: 6677117560365048822, guid: 562489e905c315b40a6892329af02a9d, type: 3}
       propertyPath: m_RootOrder
@@ -109344,7 +109344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2327217906218333773, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
       propertyPath: m_Name
-      value: PlayerNoCam (1)
+      value: PlayerNoCam
       objectReference: {fileID: 0}
     - target: {fileID: 2327217906218333774, guid: 689109fd15b06004ab6a65d4d8163489, type: 3}
       propertyPath: jumpSfx
