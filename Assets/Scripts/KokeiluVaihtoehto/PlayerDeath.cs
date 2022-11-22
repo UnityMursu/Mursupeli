@@ -7,7 +7,8 @@ public class PlayerDeath : MonoBehaviour
     private GameObject player;
     private GameMaster gameMaster;
     public PlayerMovement playerScript;
-
+    [SerializeField] private AudioSource deathSound;
+    
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -37,6 +38,7 @@ public class PlayerDeath : MonoBehaviour
     public void Die()
      {
         //animation
+        deathSound.Play();
         LoadLastCheckpoint();
      }
 

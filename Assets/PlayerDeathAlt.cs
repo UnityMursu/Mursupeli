@@ -6,6 +6,7 @@ public class PlayerDeathAlt : MonoBehaviour
 {
     private GameObject player;
     private GameMaster gameMaster;
+    [SerializeField] private AudioSource deathSound;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class PlayerDeathAlt : MonoBehaviour
      {
         //animation
         LoadLastCheckpoint();
+        deathSound.Play();
      }
 
     private void LoadLastCheckpoint()
