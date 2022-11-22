@@ -5,7 +5,8 @@ using UnityEngine;
 public class Fadeout : MonoBehaviour
 {
     public float fadeOutTime = 1f;
-    // Start is called before the first frame update
+    [SerializeField] private AudioSource audio;
+
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
@@ -18,6 +19,7 @@ public class Fadeout : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Debug.Log("I'm hidden");
+            audio.Play();
             StartCoroutine(FadeAlphaToZero(GetComponent<SpriteRenderer>(), fadeOutTime));
         }
     }
