@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private float slopeSideAngle;
     
 
-    private bool isOnSlope;
+    public bool isOnSlope;
 
     private enum movementState { idle, walk, jump, fall }
 
