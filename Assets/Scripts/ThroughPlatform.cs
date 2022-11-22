@@ -27,7 +27,7 @@ public class ThroughPlatform : MonoBehaviour
             Debug.Log("jumpdown");
             //if(waitTime <= 0) {
                 effector.rotationalOffset = 180f;
-                waitTime = 0.15f;
+                waitTime = 0.0f;
 
             //} else {
             //}
