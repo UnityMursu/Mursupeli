@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private float slopeSideAngle;
     
 
-    private bool isOnSlope;
+    public bool isOnSlope;
 
     private enum movementState { idle, walk, jump, fall }
 
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
             isSliding = true;
             invincible = true;
 
-            // Kesken. En keksi millä arvoilla tarkistan, onko laskeutuuko mäki vasemmalle vai oikealle (Koodin tarkoitus on liu'uttaa mursu aina mäkeä alaspäin)
+            // Kesken. En keksi millï¿½ arvoilla tarkistan, onko laskeutuuko mï¿½ki vasemmalle vai oikealle (Koodin tarkoitus on liu'uttaa mursu aina mï¿½keï¿½ alaspï¿½in)
             if (slopeNormalPerpendicular.y > 0)
             {
                 rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -2, slideSpeed * slopeNormalPerpendicular.y * -2);
@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Jump") && !isSliding)
+        if (Input.GetButtonDown("Jump") && !isSliding && Input.GetAxisRaw("Vertical") == 0)
         {
             if (IsGrounded())
             {
