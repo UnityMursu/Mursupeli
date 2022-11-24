@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping;
     private bool isSliding;
     public bool facingRight;
+    public bool onPlat;
     public bool invincible;
 
     private Vector2 colliderSize;
@@ -52,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         facingRight = true;
         isSliding = false;
+        onPlat = false;
         colliderSize = collider.size;
     }
 
@@ -64,19 +66,24 @@ public class PlayerMovement : MonoBehaviour
         //rigidBody.velocity = new Vector2(directionX * movementSpeed, rigidBody.velocity.y);
 
         // Different movement depending on the player's position
-        if (IsGrounded() && !isOnSlope)
+        if (IsGrounded() && !isOnSlope && !onPlat)
         {
             rigidBody.velocity = new Vector2(directionX * movementSpeed, 0.0f);
         }
-        else if (IsGrounded() && isOnSlope)
+        else if (IsGrounded() && isOnSlope && !onPlat)
         {
             // Same movement speed on slopes as on normal ground
             rigidBody.velocity = new Vector2(movementSpeed * slopeNormalPerpendicular.x * -directionX, movementSpeed * slopeNormalPerpendicular.y * -directionX);
         }
-        else if (!IsGrounded())
+        else if (!IsGrounded() && !onPlat)
         {
             rigidBody.velocity = new Vector2(directionX * movementSpeed , rigidBody.velocity.y);
         }
+        else if (onPlat)
+        {
+            rigidBody.velocity = new Vector2(directionX * movementSpeed, rigidBody.velocity.y);
+        }
+
 
 
 
@@ -227,6 +234,19 @@ public class PlayerMovement : MonoBehaviour
             slopeSideAngle = 0.0f;
             isOnSlope = false;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D info)
+    {
+        if (info.gameObject.CompareTag("Platform"))
+        {
+            onPlat = true;
+        }
+        
+    }
+    private void OnTriggerExit2D(Collider2D info2)
+    {
+        onPlat = false;
     }
    
     // Check for slope vertically
