@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementAddForce : MonoBehaviour
 {
     public Rigidbody2D rigidBody;
-    private BoxCollider2D collider;
+    private BoxCollider2D _collider;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
 
@@ -49,13 +48,13 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        collider = GetComponent<BoxCollider2D>();
+        _collider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         facingRight = true;
         isSliding = false;
         onPlat = false;
-        colliderSize = collider.size;
+        colliderSize = _collider.size;
     }
 
     // Update is called once per frame
@@ -67,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         //rigidBody.velocity = new Vector2(directionX * movementSpeed, rigidBody.velocity.y);
 
         // Different movement depending on the player's position
+        /*
         if (IsGrounded() && !isOnSlope && !onPlat)
         {
             rigidBody.velocity = new Vector2(directionX * movementSpeed, 0.0f);
@@ -84,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody.velocity = new Vector2(directionX * movementSpeed, rigidBody.velocity.y);
         }
+        */
+
 
 
         if (Input.GetButton("Fire2") && isOnSlope)
@@ -200,7 +202,33 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
+            if (rigidBody.velocity.x < movementSpeed && rigidBody.velocity.x > -movementSpeed) 
+            {
+                if (IsGrounded() && !isOnSlope && !onPlat)
+                {
+                    rigidBody.AddForce(new Vector2(directionX * 30, 0.0f));
+                }
+                else if (IsGrounded() && isOnSlope && !onPlat)
+                {
+                    // Same movement speed on slopes as on normal ground
+                    rigidBody.AddForce(new Vector2(30 * slopeNormalPerpendicular.x * -directionX, movementSpeed * slopeNormalPerpendicular.y * -directionX));
+                }
+                else if (!IsGrounded() && !onPlat)
+                {
+                    rigidBody.AddForce(new Vector2(directionX * 30 , rigidBody.velocity.y));
+                }
+                else if (onPlat)
+                {
+                    rigidBody.AddForce(new Vector2(directionX * 30, rigidBody.velocity.y));
+                }
+            }
+
+
         SlopeCheck();
+
+        
+        
     }
 
     // Check for whether or not the player is standing on a slope
@@ -280,7 +308,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+        return Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
 
     private void animationState()

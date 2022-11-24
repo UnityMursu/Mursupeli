@@ -12,6 +12,8 @@ public class itemCollection : MonoBehaviour
     [SerializeField] private Text clamText;
     [SerializeField] public Text iceText;
     [SerializeField] private AudioSource collectSfx;
+    [SerializeField] private AudioSource powerup;
+    [SerializeField] private AudioSource powerdown;
     //clamStats used upon level complete in stat screen
     [SerializeField] private Text clamStats;
 
@@ -34,6 +36,7 @@ public class itemCollection : MonoBehaviour
         if (collision.gameObject.CompareTag("Powerup"))
         {
             Destroy(collision.gameObject);
+            powerup.Play();
             Debug.Log("PowerUp");
             isPowerUp = true;
             GetComponent<SpriteRenderer>().color = Color.blue;

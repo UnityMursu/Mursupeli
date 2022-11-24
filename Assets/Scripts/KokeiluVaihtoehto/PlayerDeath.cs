@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerDeath : MonoBehaviour
 {
+    private Animator anim;
     private GameObject player;
     private GameMaster gameMaster;
     public PlayerMovement playerScript;
@@ -13,9 +14,11 @@ public class PlayerDeath : MonoBehaviour
     //use after Die()
     public int deathCounter;
 
+
     private void Start()
     {   
         isDead = false;
+        anim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
         gameMaster = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         _respawnTime = 3f;
@@ -24,6 +27,7 @@ public class PlayerDeath : MonoBehaviour
     private void Update() 
     {
         if (isDead) {
+            anim.SetTrigger("death");
             _respawnTime -= Time.deltaTime;
             if (_respawnTime < 0f) {
                     Die();
@@ -66,6 +70,7 @@ public class PlayerDeath : MonoBehaviour
     private void LoadLastCheckpoint()
     {
         player.transform.position = gameMaster.lastCheckpointPosition;
+        anim.SetTrigger("life");
     }
 
 }

@@ -24,6 +24,10 @@ public class PlayerClimb : MonoBehaviour
 
     private void Update()
     {
+        
+        if(Input.GetButtonDown("Jump")){
+            isClimbing = false;
+        }
         vertical = Input.GetAxisRaw("Vertical");
         //vertical = up or down buttons are held
         if (isTouchingWall && vertical != 0f)

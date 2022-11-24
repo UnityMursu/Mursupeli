@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fadeout : MonoBehaviour
 {
     public float fadeOutTime = 1f;
-    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioSource partySfx;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class Fadeout : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Debug.Log("I'm hidden");
-            audio.Play();
+            partySfx.Play();
             StartCoroutine(FadeAlphaToZero(GetComponent<SpriteRenderer>(), fadeOutTime));
         }
     }

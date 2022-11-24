@@ -7,6 +7,7 @@ public class IceShot : MonoBehaviour
     public Transform icePoint;
     public GameObject ice;
     public itemCollection items;
+    [SerializeField] private AudioSource shoot;
 
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class IceShot : MonoBehaviour
 
             void Shoot()
             {
+                shoot.Play();
                 Instantiate(ice, icePoint.position, icePoint.rotation);
 
             }

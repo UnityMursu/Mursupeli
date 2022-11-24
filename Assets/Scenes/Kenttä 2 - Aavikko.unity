@@ -64189,6 +64189,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1881879676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3113053663008095455, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+  m_PrefabInstance: {fileID: 826473801782135658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1902047980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65505,6 +65510,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3113053663008095452, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113053663008095452, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+      propertyPath: rigidBody
+      value: 
+      objectReference: {fileID: 2327217906858293175}
     - target: {fileID: 3113053663008095455, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_Name
       value: PlayerNoCam
@@ -65695,12 +65708,65 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3113053663008095452, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
   m_PrefabInstance: {fileID: 826473801782135658}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_GameObject: {fileID: 1881879676}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e390a1ce7991fc43a5409c1a69386fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &2327217906858293175 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3113053663008095450, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+  m_PrefabInstance: {fileID: 826473801782135658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2327217906858293176 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 826473802458400634, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+  m_PrefabInstance: {fileID: 826473801782135658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2327217906858293177 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 826473802458400613, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+  m_PrefabInstance: {fileID: 826473801782135658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2327217906858293178 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 826473802458400615, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+  m_PrefabInstance: {fileID: 826473801782135658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2327217906858293179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881879676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a775fd9e0503f4b4a9d6aaae8b05ad6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 2327217906858293175}
+  jumpableGround:
+    serializedVersion: 2
+    m_Bits: 64
+  slopeCheckDistance: 0.5
+  movementSpeed: 5.5
+  slideSpeed: 10
+  jumpForce: 14
+  jumpTime: 0.35
+  jumpTimeCounter: 0
+  normalGravity: 3
+  pitGravity: 25
+  noFriction: {fileID: 6200000, guid: cbc615e5eda28c94399c77f039c6293a, type: 2}
+  fullFriction: {fileID: 6200000, guid: 2ebaa608a3818064a8cce3bf754cc48f, type: 2}
+  facingRight: 0
+  onPlat: 0
+  invincible: 0
+  isOnSlope: 0
+  jumpSfx: {fileID: 2327217906858293178}
+  talkSfx: {fileID: 2327217906858293177}
+  slideSfx: {fileID: 2327217906858293176}
 --- !u!1001 &3709165891850020941
 PrefabInstance:
   m_ObjectHideFlags: 0
