@@ -9,7 +9,6 @@ public class Bird : MonoBehaviour
     [SerializeField] private float attackDistance;
     [SerializeField] private float moveDistance;
     [SerializeField] private float speed;
-    private float attackTimer;
     private float waitTime;
     private Vector3 startPosition;
     private bool playerInRange;
@@ -26,7 +25,6 @@ public class Bird : MonoBehaviour
         attackPoint = gameObject.GetComponentInChildren<ScorptionAttack>();
         rigidBody = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
-        attackTimer = 1f;
         waitTime = 0f;
     }
 
