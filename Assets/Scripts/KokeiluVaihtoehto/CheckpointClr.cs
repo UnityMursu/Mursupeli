@@ -12,6 +12,12 @@ public class CheckpointClr : MonoBehaviour
         gameMaster = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         spriteRend = GetComponent<SpriteRenderer>();
         spriteRend.color = Color.red;
+        
+        if(SaveManager.instance.hasLoaded)
+        {
+            gameMaster.lastCheckpointPosition = SaveManager.instance.activeSave.respawnPosition;
+            PlayerMovementDJ.instance.transform.position = gameMaster.lastCheckpointPosition;
+        }
 
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -20,6 +26,11 @@ public class CheckpointClr : MonoBehaviour
         {
             spriteRend.color = Color.green;
             gameMaster.lastCheckpointPosition = transform.position;
+            
+            SaveManager.instance.activeSave.respawnPosition = transform.position;
+
+            SaveManager.instance.Save();
+
             Debug.Log("checkpoint");
         }
     }

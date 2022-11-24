@@ -9,6 +9,11 @@ public class Checkpoint : MonoBehaviour
     private void Start()
     {
         gameMaster = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+
+        if(SaveManager.instance.hasLoaded)
+        {
+            
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

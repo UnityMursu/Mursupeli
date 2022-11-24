@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovementDJ : MonoBehaviour
 {
+    public static PlayerMovementDJ instance;
     private Rigidbody2D rigidBody;
     private BoxCollider2D collider;
     private SpriteRenderer spriteRenderer;
@@ -21,6 +22,11 @@ public class PlayerMovementDJ : MonoBehaviour
     [SerializeField] private bool doubleJump;
 
     private enum movementState { idle, walk, jump, fall }
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
