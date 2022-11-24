@@ -16,6 +16,7 @@ TagManager:
   - Climbable
   - Pit
   - Water
+  - Platform
   layers:
   - Default
   - TransparentFX
