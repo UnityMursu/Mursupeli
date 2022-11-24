@@ -12,6 +12,8 @@ public class itemCollection : MonoBehaviour
     [SerializeField] private Text clamText;
     [SerializeField] public Text iceText;
     [SerializeField] private AudioSource collectSfx;
+    //clamStats used upon level complete in stat screen
+    [SerializeField] private Text clamStats;
 
     void start()
     {
@@ -26,6 +28,7 @@ public class itemCollection : MonoBehaviour
             Destroy(collision.gameObject);
             clams++;
             clamText.text = clams.ToString();
+            clamStats.text = clams.ToString();
             collectSfx.Play();
         }
         if (collision.gameObject.CompareTag("Powerup"))
