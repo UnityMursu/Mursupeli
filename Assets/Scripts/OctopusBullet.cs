@@ -7,6 +7,7 @@ public class OctopusBullet : MonoBehaviour
    public float destroyTime;
    public float blindTime;
    public GameObject objectToDestroy;
+   public GameObject BlackScreen;
 
 
     void Start()
@@ -34,6 +35,29 @@ public class OctopusBullet : MonoBehaviour
     
     void Destroy()
     {
-        Destroy(gameObject);
+        Destroy(objectToDestroy.gameObject);
     }
+
+    void OnCollisionEnter2D(Collision2D collision) 
+     {
+        
+     //all projectile colliding game objects should be tagged "Enemy" or whatever in inspector but that tag must be reflected in the below if conditional
+        if(collision.gameObject.tag == "Player")
+        {
+        Destroy(objectToDestroy.gameObject);
+        Debug.Log("osuma");
+        BlackScreen.gameObject.SetActive(true);
+        StartCoroutine(BlindTimer());
+        }
+     }
+         IEnumerator BlindTimer()
+     {
+        Debug.Log("hmm");
+        yield return new WaitForSeconds(blindTime);
+        Debug.Log("aika");
+        BlackScreen.gameObject.SetActive(false);
+     }
+    
+     
+    
 }

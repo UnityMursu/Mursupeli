@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeathAlt : MonoBehaviour
 {
@@ -36,9 +37,9 @@ public class PlayerDeathAlt : MonoBehaviour
 
     public void Die()
      {
-        //animation
-        LoadLastCheckpoint();
         deathSound.Play();
+        LoadLastCheckpoint();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
      }
 
     private void LoadLastCheckpoint()

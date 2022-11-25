@@ -147,5 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 3
-  blindTime: 0
-  objectToDestroy: {fileID: 0}
+  blindTime: 2
+  objectToDestroy: {fileID: 7446044565028229299}
+  BlackScreen: {fileID: 7302675306145848585, guid: e7076cf1d2f64624a9bacdacf4d5b81a, type: 3}
