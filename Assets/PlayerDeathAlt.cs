@@ -23,7 +23,7 @@ public class PlayerDeathAlt : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-                Die();
+            StartCoroutine(Die());
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -31,20 +31,15 @@ public class PlayerDeathAlt : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Trap"))
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    public void Die()
+    IEnumerator Die()
      {
         deathSound.Play();
-        LoadLastCheckpoint();
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
      }
-
-    private void LoadLastCheckpoint()
-    {
-        player.transform.position = gameMaster.lastCheckpointPosition;
-    }
 
 }

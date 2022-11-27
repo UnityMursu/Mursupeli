@@ -13,6 +13,7 @@ public class OctopusBullet : MonoBehaviour
     void Start()
     {
         StartCoroutine(CountDownTimer());
+        BlackScreen.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -29,13 +30,26 @@ public class OctopusBullet : MonoBehaviour
     IEnumerator CountDownTimer()
     {
         yield return new WaitForSeconds(destroyTime);
-
         Destroy();
     }
+    
+       IEnumerator BlindTimer()
+     {
+        Debug.Log("hmm");
+        yield return new WaitForSeconds(blindTime);
+        Debug.Log("aika");
+        BlackScreen.gameObject.SetActive(false);
+     }
     
     void Destroy()
     {
         Destroy(objectToDestroy.gameObject);
+    }
+    
+    void BlindPlayer()
+    {
+    Debug.Log("blinded");
+    BlackScreen.gameObject.SetActive(true);
     }
 
     void OnCollisionEnter2D(Collision2D collision) 
@@ -44,20 +58,13 @@ public class OctopusBullet : MonoBehaviour
      //all projectile colliding game objects should be tagged "Enemy" or whatever in inspector but that tag must be reflected in the below if conditional
         if(collision.gameObject.tag == "Player")
         {
-        Destroy(objectToDestroy.gameObject);
+        Destroy();
         Debug.Log("osuma");
-        BlackScreen.gameObject.SetActive(true);
+        BlindPlayer();
         StartCoroutine(BlindTimer());
         }
      }
-         IEnumerator BlindTimer()
-     {
-        Debug.Log("hmm");
-        yield return new WaitForSeconds(blindTime);
-        Debug.Log("aika");
-        BlackScreen.gameObject.SetActive(false);
-     }
-    
+      
      
     
 }
