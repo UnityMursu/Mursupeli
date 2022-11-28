@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeathAlt : MonoBehaviour
 {
     private GameObject player;
     private GameMaster gameMaster;
+    [SerializeField] private AudioSource deathSound;
 
     private void Start()
     {
@@ -21,7 +23,7 @@ public class PlayerDeathAlt : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-                Die();
+            StartCoroutine(Die());
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -29,19 +31,15 @@ public class PlayerDeathAlt : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Trap"))
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    public void Die()
+    IEnumerator Die()
      {
-        //animation
-        LoadLastCheckpoint();
+        deathSound.Play();
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
      }
-
-    private void LoadLastCheckpoint()
-    {
-        player.transform.position = gameMaster.lastCheckpointPosition;
-    }
 
 }

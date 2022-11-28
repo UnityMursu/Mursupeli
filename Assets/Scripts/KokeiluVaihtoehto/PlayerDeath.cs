@@ -13,8 +13,8 @@ public class PlayerDeath : MonoBehaviour
     private bool isDead;
     //use after Die()
     public int deathCounter;
-
-
+    [SerializeField] private AudioSource deathSound;
+    
     private void Start()
     {   
         isDead = false;
@@ -64,6 +64,7 @@ public class PlayerDeath : MonoBehaviour
         isDead = false;
         player.GetComponent<PlayerMovement>().enabled = true;
         _respawnTime = 3f;
+        deathSound.Play();
         LoadLastCheckpoint();
      }
 
