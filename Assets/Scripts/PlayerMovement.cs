@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -83,8 +84,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody.velocity = new Vector2(directionX * movementSpeed, rigidBody.velocity.y);
         }
-
-
 
 
         if (Input.GetButton("Fire2") && isOnSlope)

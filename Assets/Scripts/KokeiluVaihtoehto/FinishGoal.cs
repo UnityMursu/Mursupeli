@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FinishGoal : MonoBehaviour
 {
     [SerializeField] private AudioSource goalSfx;
+    [SerializeField] private GameObject stats;
 
     private void Start()
     {
@@ -18,15 +20,9 @@ public class FinishGoal : MonoBehaviour
             /*without delay 
              CompeleLevel()*/
             goalSfx.Play();
-            Invoke("CompleteLevel", 3);
+            Time.timeScale = 0;
+            //shows stat screen - needs CanvasRenderer Stats from Canvas StatScreen
+            stats.SetActive(true);
         }
-    }
-
-    private void CompleteLevel() 
-    {
-        //reloads current
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //moves to next level
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

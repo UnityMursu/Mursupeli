@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDeath : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerDeath : MonoBehaviour
     public PlayerMovement playerScript;
     private float _respawnTime;
     private bool isDead;
+    //use after Die()
+    public int deathCounter;
 
 
     private void Start()
@@ -28,6 +31,7 @@ public class PlayerDeath : MonoBehaviour
             _respawnTime -= Time.deltaTime;
             if (_respawnTime < 0f) {
                     Die();
+                    deathCounter++;
             }
         }
     }
