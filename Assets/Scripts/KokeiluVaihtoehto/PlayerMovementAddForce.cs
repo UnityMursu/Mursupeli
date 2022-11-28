@@ -12,6 +12,7 @@ public class PlayerMovementAddForce : MonoBehaviour
     [SerializeField] private LayerMask jumpableGround;
 
     private float directionX;
+    private float normalDrag;
     [SerializeField] private float slopeCheckDistance;
     [SerializeField] private float movementSpeed = 0f;
     [SerializeField] public float slideSpeed = 10f;
@@ -55,6 +56,7 @@ public class PlayerMovementAddForce : MonoBehaviour
         isSliding = false;
         onPlat = false;
         colliderSize = _collider.size;
+        normalDrag = rigidBody.drag;
     }
 
     // Update is called once per frame
@@ -85,8 +87,6 @@ public class PlayerMovementAddForce : MonoBehaviour
             rigidBody.velocity = new Vector2(directionX * movementSpeed, rigidBody.velocity.y);
         }
         */
-
-
 
         if (Input.GetButton("Fire2") && isOnSlope)
         {
@@ -269,11 +269,19 @@ public class PlayerMovementAddForce : MonoBehaviour
         {
             onPlat = true;
         }
+        if(info.gameObject.name == "Ice")
+        {
+            rigidBody.drag = 0.01f;
+        }
         
     }
-    private void OnTriggerExit2D(Collider2D info2)
+    private void OnTriggerExit2D(Collider2D info)
     {
         onPlat = false;
+        if (info.gameObject.name == "Ice")
+        {
+            rigidBody.drag = normalDrag;
+        }
     }
    
     // Check for slope vertically
