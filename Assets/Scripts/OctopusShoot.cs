@@ -25,6 +25,7 @@ public class OctopusShoot : MonoBehaviour
     [SerializeField] Transform player, shootPos;
     [SerializeField] Transform groundCheck;
     [SerializeField] Vector2 boxSize;
+    public GameObject BlackScreen;
     private bool isGrounded;
     private bool canShoot;
 
@@ -116,5 +117,15 @@ public class OctopusShoot : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, lineOfSight);
     }
+
+       public IEnumerator BlindTimer()
+     {
+        Debug.Log("blinded");
+        BlackScreen.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        Debug.Log("aika");
+        BlackScreen.SetActive(false);
+        Debug.Log("aika2");
+     }
  
 }
