@@ -294,6 +294,7 @@ MonoBehaviour:
   shootPos: {fileID: 4947796949142807888}
   groundCheck: {fileID: 7926954731028803937}
   boxSize: {x: 1, y: 1}
+  BlackScreen: {fileID: 6794337619593664814, guid: 7451add3590d8af4f9b1ae00d71e0411, type: 3}
   lineOfSight: {x: 11.49, y: 1}
   playerLayer:
     serializedVersion: 2

@@ -146,7 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933eb6915fce9534aa2127f19bbf9e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 3
-  blindTime: 2
   objectToDestroy: {fileID: 7446044565028229299}
-  BlackScreen: {fileID: 7302675306145848585, guid: e7076cf1d2f64624a9bacdacf4d5b81a, type: 3}
+  octopus: {fileID: 7926954730625278318, guid: 77279e6926a580342822472b74a1b4db, type: 3}
