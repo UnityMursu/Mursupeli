@@ -138,7 +138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  sprite: {fileID: 2225180554112696003}
   rb: {fileID: 6220849108660206259}
+  cc: {fileID: 7653013526784725062}
   destroyed: 0
   impact: {fileID: 777864087790111344}
 --- !u!82 &777864087790111344
