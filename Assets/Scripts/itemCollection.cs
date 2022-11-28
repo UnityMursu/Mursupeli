@@ -13,7 +13,6 @@ public class itemCollection : MonoBehaviour
     [SerializeField] public Text iceText;
     [SerializeField] private AudioSource collectSfx;
     [SerializeField] private AudioSource powerup;
-    [SerializeField] private AudioSource powerdown;
     //clamStats used upon level complete in stat screen
     [SerializeField] private Text clamStats;
 

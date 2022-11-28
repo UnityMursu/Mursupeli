@@ -21,5 +21,14 @@ public class BounceFromEnemy : MonoBehaviour
             playerBot.AddForce(Vector2.up * bounceForce);
 
         }
+
+        if (collision.GetComponent<EnemyBouncespot>())
+        {
+            Debug.Log("bouncy");
+            bounceSfx.Play();
+            playerBot.velocity = new Vector2(playerBot.velocity.x, 0f);
+            playerBot.AddForce(Vector2.up * bounceForce);
+
+        }
     }
 }
