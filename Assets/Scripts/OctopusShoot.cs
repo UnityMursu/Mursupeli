@@ -42,6 +42,7 @@ public class OctopusShoot : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         checkingGround = Physics2D.OverlapCircle(groundCheckPoint.position, circleRadius, groundLayer);
         checkingWall = Physics2D.OverlapCircle(wallCheckPoint.position, circleRadius, groundLayer);
         isGrounded = Physics2D.OverlapBox(groundCheck.position,boxSize,0, groundLayer);
@@ -117,15 +118,4 @@ public class OctopusShoot : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, lineOfSight);
     }
-
-       public IEnumerator BlindTimer()
-     {
-        Debug.Log("blinded");
-        BlackScreen.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        Debug.Log("aika");
-        BlackScreen.SetActive(false);
-        Debug.Log("aika2");
-     }
- 
 }

@@ -7,13 +7,14 @@ public class OctopusBullet : MonoBehaviour
 {
 
     public GameObject objectToDestroy;
-    public GameObject octopus;
+    public GameObject player;
 
 
 
     void Start()
     {
         StartCoroutine(CountDownTimer());
+        player = GameObject.Find("PlayerNoCam");
     }
 
     // Update is called once per frame
@@ -48,8 +49,8 @@ public class OctopusBullet : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
         Debug.Log("osuma");
+        player.GetComponent<PlayerMovementDJ>().blindTime = 3f;
         Destroy();
-        StartCoroutine(octopus.GetComponent<OctopusShoot>().BlindTimer());
         }
      }
       

@@ -18,8 +18,10 @@ public class PlayerMovementDJ : MonoBehaviour
     [SerializeField] public float jumpTime = 0.35f;
     [SerializeField] public float jumpTimeCounter;
     private bool isJumping;
+    public GameObject BlackScreen;
     public bool facingRight;
     [SerializeField] private bool doubleJump;
+    public float blindTime;
 
     private enum movementState { idle, walk, jump, fall }
 
@@ -41,6 +43,17 @@ public class PlayerMovementDJ : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(blindTime > 0)
+        {
+            blindTime -= Time.deltaTime;
+            BlackScreen.SetActive(true);
+        }
+        else
+        {
+            BlackScreen.SetActive(false);
+        }
+
         //movement          GetAxis is more smooth
         directionX = Input.GetAxisRaw("Horizontal");
         rigidBody.velocity = new Vector2(directionX * movementSpeed, rigidBody.velocity.y);
