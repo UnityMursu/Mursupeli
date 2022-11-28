@@ -34,6 +34,7 @@ public class OctopusShoot : MonoBehaviour
     [SerializeField] LayerMask playerLayer;
     private bool canSeePlayer;
    
+
    void Start()
    {
         enemyRB = GetComponent<Rigidbody2D>();

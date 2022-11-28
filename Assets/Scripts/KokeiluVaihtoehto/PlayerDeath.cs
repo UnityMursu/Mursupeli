@@ -23,7 +23,7 @@ public class PlayerDeath : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy") && !playerScript.invincible)
         {
-                Die();
+            Die();
         }
         if (collision.gameObject.CompareTag("Enemy") && playerScript.invincible)
         {

@@ -40,6 +40,7 @@ public class PlayerDeathAlt : MonoBehaviour
         deathSound.Play();
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GetComponent<SaveManager>().Load();
      }
 
 }
