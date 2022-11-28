@@ -35,6 +35,7 @@ public class OctopusShoot : MonoBehaviour
     private bool canSeePlayer;
    
 
+
    void Start()
    {
         enemyRB = GetComponent<Rigidbody2D>();
