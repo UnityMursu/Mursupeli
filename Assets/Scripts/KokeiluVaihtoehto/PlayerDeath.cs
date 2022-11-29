@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
@@ -63,9 +64,9 @@ public class PlayerDeath : MonoBehaviour
         //animation
         isDead = false;
         player.GetComponent<PlayerMovement>().enabled = true;
-        _respawnTime = 3f;
         deathSound.Play();
-        LoadLastCheckpoint();
+        _respawnTime = 3f;
+         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
      }
 
     private void LoadLastCheckpoint()

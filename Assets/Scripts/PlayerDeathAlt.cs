@@ -7,7 +7,8 @@ public class PlayerDeathAlt : MonoBehaviour
 {
     private GameObject player;
     private GameMaster gameMaster;
-    [SerializeField] private AudioSource deathSound;
+     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip deathSound;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class PlayerDeathAlt : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            StartCoroutine(Die());
+           StartCoroutine(Die());
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -31,14 +32,14 @@ public class PlayerDeathAlt : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Trap"))
         {
-            StartCoroutine(Die());
+             StartCoroutine(Die());
         }
     }
 
     IEnumerator Die()
      {
-        deathSound.Play();
-        yield return new WaitForSeconds(1.5f);
+        audioSource.PlayOneShot(deathSound, 0.7F);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
      }
 

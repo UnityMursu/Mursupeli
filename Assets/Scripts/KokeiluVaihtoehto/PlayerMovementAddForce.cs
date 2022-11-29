@@ -8,6 +8,7 @@ public class PlayerMovementAddForce : MonoBehaviour
     private BoxCollider2D _collider;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    public static PlayerMovementAddForce instance;
 
     [SerializeField] private LayerMask jumpableGround;
 
@@ -162,6 +163,12 @@ public class PlayerMovementAddForce : MonoBehaviour
             talkSfxTimer = 1f;
         }
     }
+
+     private void Awake()
+    {
+        instance = this;
+    }
+    
     private void FixedUpdate()
     {
 

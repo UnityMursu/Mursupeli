@@ -16,11 +16,13 @@ public class CheckpointClr : MonoBehaviour
         
         if(SaveManager.instance.hasLoaded)
         {
+            //tee if else jokaiselle movement scriptille tai muuta uusin toimimaan meressä
             gameMaster.lastCheckpointPosition = SaveManager.instance.activeSave.respawnPosition;
-            PlayerMovementDJ.instance.transform.position = gameMaster.lastCheckpointPosition;
+            PlayerMovementAddForce.instance.transform.position = gameMaster.lastCheckpointPosition;
         }
 
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -30,6 +32,7 @@ public class CheckpointClr : MonoBehaviour
                 checkpoint.Play();
             }
             spriteRend.color = Color.green;
+            
             gameMaster.lastCheckpointPosition = transform.position;
             
             SaveManager.instance.activeSave.respawnPosition = transform.position;
