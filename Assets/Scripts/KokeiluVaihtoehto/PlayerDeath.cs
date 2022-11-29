@@ -43,7 +43,7 @@ public class PlayerDeath : MonoBehaviour
         GameObject trap = GameObject.FindWithTag("Trap");
         if (collision.gameObject.CompareTag("Enemy") && !playerScript.invincible)
         {
-                player.GetComponent<PlayerMovement>().enabled = false;
+                //player.GetComponent<PlayerMovement>().enabled = false;
                 isDead = true;
 
         }
@@ -53,7 +53,7 @@ public class PlayerDeath : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Trap"))
         {
-                player.GetComponent<PlayerMovement>().enabled = false;
+                //player.GetComponent<PlayerMovement>().enabled = false;
                 isDead = true;
         }
     }

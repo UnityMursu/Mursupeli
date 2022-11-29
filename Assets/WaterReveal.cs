@@ -5,12 +5,16 @@ using UnityEngine.Tilemaps;
 
 public class WaterReveal : MonoBehaviour
 {
+    private AudioLowPassFilter Underwater;
+    public GameObject Music;
     public float fadeOutTime = 1f;
+    [SerializeField] private AudioSource Splash;
     // Start is called before the first frame update
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
         GameObject water = GameObject.FindWithTag("Water");
+        Underwater = Music.GetComponent<AudioLowPassFilter>();
 
     }
     // Is called when something enters objects collider area
@@ -20,6 +24,8 @@ public class WaterReveal : MonoBehaviour
         {
             Debug.Log("underwater");
             StartCoroutine(FadeAlphaToZero(GetComponent<Tilemap>(), fadeOutTime));
+            Underwater.cutoffFrequency = 500;
+            Splash.Play();
         }
     }
     // Is called when something exits objects collider area
@@ -29,6 +35,8 @@ public class WaterReveal : MonoBehaviour
         {
             Debug.Log("out of water");
             StartCoroutine(FadeZeroToAlpha(GetComponent<Tilemap>(), fadeOutTime));
+            Underwater.cutoffFrequency = 22000;
+            Splash.Play();
         }
     }
 

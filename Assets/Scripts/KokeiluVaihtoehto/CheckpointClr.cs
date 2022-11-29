@@ -6,6 +6,7 @@ public class CheckpointClr : MonoBehaviour
 {
     private GameMaster gameMaster;
     private SpriteRenderer spriteRend;
+    [SerializeField] private AudioSource checkpoint;
 
     private void Start()
     {
@@ -24,6 +25,10 @@ public class CheckpointClr : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (spriteRend.color != Color.green)
+            {
+                checkpoint.Play();
+            }
             spriteRend.color = Color.green;
             gameMaster.lastCheckpointPosition = transform.position;
             
@@ -32,6 +37,7 @@ public class CheckpointClr : MonoBehaviour
             SaveManager.instance.Save();
 
             Debug.Log("checkpoint");
+            
         }
     }
 }

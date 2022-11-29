@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Kentt\xE4 4 - Merenpohja.unity"
     guid: 96308b3b2f9ce914da153d8ff25fdb3c
+  - enabled: 1
+    path: "Assets/Scenes/Kentt\xE4 5 - J\xE4\xE4tikk\xF6.unity"
+    guid: 76d57267cafe739499d812655ceb28a0
+  - enabled: 1
+    path: Assets/Scenes/End Screen.unity
+    guid: c39c393a11730334a84b348175c3384e
   m_configObjects: {}

@@ -7,12 +7,13 @@ using UnityEngine;
 
 public class PlayerClimb : MonoBehaviour
 {
-    private bool isTouchingWall;
+    public bool isTouchingWall;
     private float speed = 8f;
     private float vertical;
-    private bool isClimbing;
+    public bool isClimbing;
 
     private float originalGravityScale;
+    private PlayerMovementAddForce _movementScript;
 
     [SerializeField] private Rigidbody2D rigidBody;
     
@@ -20,12 +21,21 @@ public class PlayerClimb : MonoBehaviour
     {
         //saves original player gravityScale for later
         originalGravityScale = rigidBody.gravityScale;
+        _movementScript = GetComponent<PlayerMovementAddForce>();
     }
 
     private void Update()
     {
         
-        if(Input.GetButtonDown("Jump")){
+        if(Input.GetButtonDown("Jump") && isClimbing)
+        {
+            if(_movementScript.facingRight == true)
+            {
+                rigidBody.velocity = new Vector2(10, 12);
+            }else
+            {
+                rigidBody.velocity = new Vector2(-10, 12);
+            }
             isClimbing = false;
         }
         vertical = Input.GetAxisRaw("Vertical");
@@ -40,7 +50,7 @@ public class PlayerClimb : MonoBehaviour
     {
         if (isClimbing)
         {
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, vertical * speed);
+            rigidBody.velocity = new Vector2(0, vertical * speed);
         }
     }
 
