@@ -1086,8 +1086,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: StatScreen, Assembly-CSharp
+      - m_Target: {fileID: 500399463}
+        m_TargetAssemblyTypeName: StatScreenAddForce, Assembly-CSharp
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
