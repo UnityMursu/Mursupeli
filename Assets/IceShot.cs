@@ -8,7 +8,7 @@ public class IceShot : MonoBehaviour
     public GameObject ice;
     public itemCollection items;
     [SerializeField] private AudioSource shoot;
-
+    [SerializeField] private AudioSource powerdown;
 
     // Update is called once per frame
     void Update()
@@ -32,10 +32,12 @@ public class IceShot : MonoBehaviour
             }
         }
       
-        if (items.ammo == 0)
+        if (items.ammo == 0 && items.isPowerUp == true)
         {
             items.isPowerUp = false;
             GetComponent<SpriteRenderer>().color = Color.white;
+            powerdown.Play();
+
         }
 
     }
