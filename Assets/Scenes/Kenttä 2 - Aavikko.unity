@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 4217523}
   - component: {fileID: 4217522}
   - component: {fileID: 4217521}
+  - component: {fileID: 4217526}
   m_Layer: 5
   m_Name: Canvas(PauseMenu)
   m_TagString: Untagged
@@ -239,6 +240,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &4217526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4217520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68df2e860dd7b81439d7e9b4732b8fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
 --- !u!4 &13820433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6234943778403271334, guid: 992faced39a89584396434659542d161, type: 3}
@@ -2962,7 +2976,7 @@ AudioSource:
   m_GameObject: {fileID: 612052827}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1850516681691850808, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5e594012b924ea449a7a43f6b52ae760, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.162
@@ -3148,13 +3162,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1906763062}
   m_HandleRect: {fileID: 1237138194}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4217526}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: SetVolumeMaster
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &633969335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5649026143294713762, guid: fee015048501dd343b3e49374468468c, type: 3}
@@ -66853,6 +66879,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 826473802458400612, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
+    - target: {fileID: 826473802458400613, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
+    - target: {fileID: 826473802458400615, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
     - target: {fileID: 3113053663008095448, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_RootOrder
       value: 2

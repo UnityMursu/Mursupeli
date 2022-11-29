@@ -7,8 +7,14 @@ public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
 
-    public void SetVolume (float volume)
+    public void SetVolumeMaster (float volume)
     {
         audioMixer.SetFloat("MasterVolume", volume);
+        audioMixer.SetFloat("MusicVolume", volume);
+    }
+
+       public void SetVolumeMusic (float volume)
+    {
+        audioMixer.SetFloat("MusicVolume", volume);
     }
 }

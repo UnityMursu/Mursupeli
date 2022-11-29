@@ -979,6 +979,7 @@ GameObject:
   - component: {fileID: 1554365505819709848}
   - component: {fileID: 1554365505819709849}
   - component: {fileID: 1554365505819709850}
+  - component: {fileID: 6854036447413647210}
   m_Layer: 5
   m_Name: Canvas(PauseMenu)
   m_TagString: Untagged
@@ -1082,6 +1083,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1554365506524698438}
+--- !u!114 &6854036447413647210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554365505819709851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68df2e860dd7b81439d7e9b4732b8fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
 --- !u!1 &1554365506037691964
 GameObject:
   m_ObjectHideFlags: 0
