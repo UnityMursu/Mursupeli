@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AntlionPit : MonoBehaviour
 {
-    public PlayerMovement player;
+    public PlayerMovementAddForce player;
     private bool inPit;
 
 

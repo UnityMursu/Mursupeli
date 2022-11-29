@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class FadeoutTilemap : MonoBehaviour
 {
     public float fadeOutTime = 1f;
+    [SerializeField] private AudioSource partySfx;
     // Start is called before the first frame update
     private void Start()
     {
@@ -19,6 +20,7 @@ public class FadeoutTilemap : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Debug.Log("I'm hidden");
+            partySfx.Play();
             StartCoroutine(FadeAlphaToZero(GetComponent<Tilemap>(), fadeOutTime));
         }
     }
