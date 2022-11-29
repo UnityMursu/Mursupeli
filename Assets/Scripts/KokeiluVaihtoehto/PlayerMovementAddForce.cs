@@ -23,11 +23,13 @@ public class PlayerMovementAddForce : MonoBehaviour
     [SerializeField] public float pitGravity = 25f;
     [SerializeField] private PhysicsMaterial2D noFriction;
     [SerializeField] private PhysicsMaterial2D fullFriction;
+    [SerializeField] private PhysicsMaterial2D normalFriction;
     private bool isJumping;
     private bool isSliding;
     public bool facingRight;
     public bool onPlat;
     public bool invincible;
+    public bool onIce;
 
     private Vector2 colliderSize;
     private Vector2 slopeNormalPerpendicular;
@@ -192,7 +194,7 @@ public class PlayerMovementAddForce : MonoBehaviour
                 else if (IsGrounded() && isOnSlope && !onPlat)
                 {
                     // Same movement speed on slopes as on normal ground
-                    rigidBody.AddForce(new Vector2(30 * slopeNormalPerpendicular.x * -directionX, 30 * slopeNormalPerpendicular.y * -directionX));
+                    rigidBody.AddForce(new Vector2(50 * slopeNormalPerpendicular.x * -directionX, 50 * slopeNormalPerpendicular.y * -directionX));
                 }
                 else if (!IsGrounded() && !onPlat)
                 {
@@ -246,9 +248,20 @@ public class PlayerMovementAddForce : MonoBehaviour
             //slideSfx.Stop();
             
         }
-        else
+        else if (isOnSlope && (directionX < 0.0f || directionX > 0.0f) || onIce)
         {
             rigidBody.sharedMaterial = noFriction;
+            isSliding = false;
+            invincible = false;
+            //slideSfx.Stop();
+            if (!isSliding || isJumping)
+            {
+                //slideSfx.Stop();
+            }
+        }
+        else
+        {
+            rigidBody.sharedMaterial = normalFriction;
             isSliding = false;
             invincible = false;
             //slideSfx.Stop();
@@ -306,6 +319,7 @@ public class PlayerMovementAddForce : MonoBehaviour
         if(info.gameObject.name == "Ice")
         {
             rigidBody.drag = 0.01f;
+            onIce = true;
         }
         
     }
@@ -315,6 +329,7 @@ public class PlayerMovementAddForce : MonoBehaviour
         if (info.gameObject.name == "Ice")
         {
             rigidBody.drag = normalDrag;
+            onIce = false;
         }
     }
    
