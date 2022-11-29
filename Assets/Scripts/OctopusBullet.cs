@@ -14,7 +14,7 @@ public class OctopusBullet : MonoBehaviour
     void Start()
     {
         StartCoroutine(CountDownTimer());
-        player = GameObject.Find("PlayerNoCam");
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
