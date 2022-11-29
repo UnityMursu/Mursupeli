@@ -45,7 +45,6 @@ public class OctopusBullet : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision) 
      {
         
-     //all projectile colliding game objects should be tagged "Enemy" or whatever in inspector but that tag must be reflected in the below if conditional
         if(collision.gameObject.tag == "Player")
         {
         Debug.Log("osuma");
