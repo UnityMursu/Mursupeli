@@ -33,6 +33,7 @@ public class JumpAttack : MonoBehaviour
    void Start()
    {
         enemyRB = GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player").transform;
    }
 
     void FixedUpdate()

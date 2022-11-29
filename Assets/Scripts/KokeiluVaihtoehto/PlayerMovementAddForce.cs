@@ -40,9 +40,13 @@ public class PlayerMovementAddForce : MonoBehaviour
 
     private enum movementState { idle, walk, jump, fall }
 
-    [SerializeField] private AudioSource jumpSfx;
-    [SerializeField] private AudioSource talkSfx;
-    [SerializeField] private AudioSource slideSfx;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip jumpSfx;
+    [SerializeField] private AudioClip talkSfx;
+    [SerializeField] private AudioClip slideSfx;
+    private float jumpSfxTimer;
+    private float slideSfxTimer;
+    private float talkSfxTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +59,7 @@ public class PlayerMovementAddForce : MonoBehaviour
         isSliding = false;
         onPlat = false;
         colliderSize = _collider.size;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -85,7 +90,7 @@ public class PlayerMovementAddForce : MonoBehaviour
             rigidBody.velocity = new Vector2(directionX * movementSpeed, rigidBody.velocity.y);
         }
         */
-
+        
 
 
         if (Input.GetButton("Fire2") && isOnSlope)
@@ -103,10 +108,11 @@ public class PlayerMovementAddForce : MonoBehaviour
             {
                 rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * 2, slideSpeed * slopeNormalPerpendicular.y * 2);
             }
-            
-            if (isSliding && !slideSfx.isPlaying)
+            slideSfxTimer -= Time.deltaTime;
+            if (isSliding && slideSfxTimer < 0)
             {
-                slideSfx.Play();
+                audioSource.PlayOneShot(slideSfx, 0.3F);
+                slideSfxTimer = 0.42f;
             } 
 
 
@@ -126,7 +132,7 @@ public class PlayerMovementAddForce : MonoBehaviour
             isSliding = false;
             invincible = false;
             
-            slideSfx.Stop();
+            //slideSfx.Stop();
             
         }
         else
@@ -137,7 +143,7 @@ public class PlayerMovementAddForce : MonoBehaviour
             //slideSfx.Stop();
             if (!isSliding || isJumping)
             {
-                slideSfx.Stop();
+                //slideSfx.Stop();
             }
         }
 
@@ -148,24 +154,29 @@ public class PlayerMovementAddForce : MonoBehaviour
                 isJumping = true;
                 jumpTimeCounter = jumpTime;
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
-                jumpSfx.Play();
+                
+                audioSource.PlayOneShot(jumpSfx, 0.7F);
             }
         }
-
+        
+        jumpSfxTimer -= Time.deltaTime;
         //jump a
         if (Input.GetButtonDown("Jump") && IsGrounded() && Input.GetAxisRaw("Vertical") == 0 && !isSliding)
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
-            jumpSfx.Play();
+            audioSource.PlayOneShot(jumpSfx, 0.7F);
         } 
         else if (isSliding && Input.GetButton("Jump"))
         {
             Debug.Log("slidejump");
             isJumping = true;
             jumpTimeCounter = jumpTime;
-            jumpSfx.Play();
+            if (jumpSfxTimer < 0) {
+                audioSource.PlayOneShot(jumpSfx, 0.7F);
+                jumpSfxTimer = 0.3f;
+            }
             //rigidBody.velocity += new Vector2(rigidBody.velocity.x, jumpForce);
             //rigidBody.AddForce(new Vector2(slideSpeed * 10f, slideSpeed * 10f));
             rigidBody.velocity = transform.right * slideSpeed;  
@@ -194,16 +205,17 @@ public class PlayerMovementAddForce : MonoBehaviour
         {
             isJumping = false;
         }
-
-        if (Input.GetButton("Fire3"))
+        talkSfxTimer -= Time.deltaTime;
+        if (Input.GetButton("Fire3") && talkSfxTimer < 0)
         {
-            talkSfx.Play();
+            audioSource.PlayOneShot(talkSfx, 0.3F);
+            talkSfxTimer = 1f;
         }
     }
     private void FixedUpdate()
     {
 
-            if (rigidBody.velocity.x < movementSpeed && rigidBody.velocity.x > -movementSpeed) 
+        if (rigidBody.velocity.x < movementSpeed && rigidBody.velocity.x > -movementSpeed) 
             {
                 if (IsGrounded() && !isOnSlope && !onPlat)
                 {
