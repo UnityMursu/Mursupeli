@@ -19,6 +19,7 @@ public class PlayerCamera : MonoBehaviour
         scrollDistance = new Vector3(0.0f, 5.0f, 0.0f);
         scrollTime = 4f;
         scroll = false;
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
