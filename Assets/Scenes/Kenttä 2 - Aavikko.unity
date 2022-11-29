@@ -64369,18 +64369,18 @@ PrefabInstance:
     - target: {fileID: 2653003301960133213, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: clamStats
       value: 
-      objectReference: {fileID: 1288125008}
+      objectReference: {fileID: 1755163899}
     - target: {fileID: 4330433101183986854, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4330433101183986854, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.464127
+      value: -3.41
       objectReference: {fileID: 0}
     - target: {fileID: 4330433101183986854, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34637606
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4330433101183986854, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: m_LocalPosition.z
