@@ -215,7 +215,7 @@ public class PlayerMovementAddForce : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if (rigidBody.velocity.x < movementSpeed && rigidBody.velocity.x > -movementSpeed) 
+        if (rigidBody.velocity.x < movementSpeed && directionX > 0) 
             {
                 if (IsGrounded() && !isOnSlope && !onPlat)
                 {
@@ -224,7 +224,7 @@ public class PlayerMovementAddForce : MonoBehaviour
                 else if (IsGrounded() && isOnSlope && !onPlat)
                 {
                     // Same movement speed on slopes as on normal ground
-                    rigidBody.AddForce(new Vector2(30 * slopeNormalPerpendicular.x * -directionX, movementSpeed * slopeNormalPerpendicular.y * -directionX));
+                    rigidBody.AddForce(new Vector2(30 * slopeNormalPerpendicular.x * -directionX, 30 * slopeNormalPerpendicular.y * -directionX));
                 }
                 else if (!IsGrounded() && !onPlat)
                 {
@@ -235,6 +235,26 @@ public class PlayerMovementAddForce : MonoBehaviour
                     rigidBody.AddForce(new Vector2(directionX * 30, rigidBody.velocity.y));
                 }
             }
+        else if (rigidBody.velocity.x > -movementSpeed && directionX < 0)
+        {
+            if (IsGrounded() && !isOnSlope && !onPlat)
+                {
+                    rigidBody.AddForce(new Vector2(directionX * 30, 0.0f));
+                }
+                else if (IsGrounded() && isOnSlope && !onPlat)
+                {
+                    // Same movement speed on slopes as on normal ground
+                    rigidBody.AddForce(new Vector2(30 * slopeNormalPerpendicular.x * -directionX, 30 * slopeNormalPerpendicular.y * -directionX));
+                }
+                else if (!IsGrounded() && !onPlat)
+                {
+                    rigidBody.AddForce(new Vector2(directionX * 30 , rigidBody.velocity.y));
+                }
+                else if (onPlat)
+                {
+                    rigidBody.AddForce(new Vector2(directionX * 30, rigidBody.velocity.y));
+                }
+        }
 
 
         SlopeCheck();
