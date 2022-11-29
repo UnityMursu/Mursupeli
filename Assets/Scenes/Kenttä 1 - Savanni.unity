@@ -6539,6 +6539,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 826473802458400612, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
+    - target: {fileID: 826473802458400613, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
+    - target: {fileID: 826473802458400615, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
+    - target: {fileID: 826473802458400634, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
     - target: {fileID: 3113053663008095448, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_RootOrder
       value: 12
