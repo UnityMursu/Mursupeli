@@ -1149,63 +1149,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16827297, y: 8.291042}
   m_EdgeRadius: 0
---- !u!1001 &209077875
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7215194694759138537, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215194694759138537, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215194694759138537, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215194694759138537, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215194694759138537, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215194694759138537, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215194694759138537, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215194694759138537, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215194694759138537, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215194694759138537, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215194694759138537, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215194694759138538, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
-      propertyPath: m_Name
-      value: IcePowerUp
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fb9272c0b93c33a498ff899dabb665cc, type: 3}
 --- !u!1001 &221549468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112019,6 +111962,7 @@ Transform:
   - {fileID: 1990245336}
   - {fileID: 23179630}
   - {fileID: 1228839579}
+  - {fileID: 558298600}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
