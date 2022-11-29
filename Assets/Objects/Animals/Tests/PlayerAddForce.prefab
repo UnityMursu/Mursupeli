@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 190467022256462750}
   - component: {fileID: 1259408273803037183}
   - component: {fileID: 2653003301960133213}
+  - component: {fileID: 6027773170161960135}
   - component: {fileID: 3095447645035983275}
   - component: {fileID: 4155870225272655833}
   - component: {fileID: 8071351957064744920}
@@ -384,6 +385,7 @@ MonoBehaviour:
   ice: {fileID: 2225180554112696002, guid: 3806c0ab11c25bc4a9269cadfdb8cefa, type: 3}
   items: {fileID: 2653003301960133213}
   shoot: {fileID: 8071351957064744920}
+  powerdown: {fileID: 0}
 --- !u!114 &2653003301960133213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,8 +404,20 @@ MonoBehaviour:
   iceText: {fileID: 0}
   collectSfx: {fileID: 9106341912918995702}
   powerup: {fileID: 8071351957064744920}
-  powerdown: {fileID: 8071351957064744920}
   clamStats: {fileID: 0}
+--- !u!114 &6027773170161960135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832739346042843155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5a0478216588c478b5b9b8f73b1efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 7949869093500372386}
 --- !u!95 &3095447645035983275
 Animator:
   serializedVersion: 4
