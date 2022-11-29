@@ -93,59 +93,7 @@ public class PlayerMovementAddForce : MonoBehaviour
         }
         */
 
-        if (Input.GetButton("Fire2") && isOnSlope)
-        {
-            // Make the player slide down slopes when down is pressed
-            rigidBody.sharedMaterial = noFriction;
-            isSliding = true;
-            invincible = true;
-
-            // Kesken. En keksi mill� arvoilla tarkistan, onko laskeutuuko m�ki vasemmalle vai oikealle (Koodin tarkoitus on liu'uttaa mursu aina m�ke� alasp�in)
-            if (slopeNormalPerpendicular.y > 0)
-            {
-                rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -2, slideSpeed * slopeNormalPerpendicular.y * -2);
-            } else if (slopeNormalPerpendicular.y < 0)
-            {
-                rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * 2, slideSpeed * slopeNormalPerpendicular.y * 2);
-            }
-            slideSfxTimer -= Time.deltaTime;
-            if (isSliding && slideSfxTimer < 0)
-            {
-                audioSource.PlayOneShot(slideSfx, 0.3F);
-                slideSfxTimer = 0.42f;
-            } 
-
-
-            if (!facingRight && slopeNormalPerpendicular.y > 0)
-            {
-                Flip();
-            } else if (facingRight && slopeNormalPerpendicular.y < 0)
-            {
-                Flip();
-            }
-            //rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -directionX, slideSpeed * slopeNormalPerpendicular.y * -directionX);
-        }
-        else if (isOnSlope && directionX == 0.0f)
-        {
-            // Add friction to prevent the player from sliding down when standing still on slopes
-            rigidBody.sharedMaterial = fullFriction;
-            isSliding = false;
-            invincible = false;
-            
-            //slideSfx.Stop();
-            
-        }
-        else
-        {
-            rigidBody.sharedMaterial = noFriction;
-            isSliding = false;
-            invincible = false;
-            //slideSfx.Stop();
-            if (!isSliding || isJumping)
-            {
-                //slideSfx.Stop();
-            }
-        }
+        
 
         if (Input.GetButtonDown("Jump") && !isSliding && Input.GetAxisRaw("Vertical") == 0)
         {
@@ -254,6 +202,60 @@ public class PlayerMovementAddForce : MonoBehaviour
                 {
                     rigidBody.AddForce(new Vector2(directionX * 30, rigidBody.velocity.y));
                 }
+        }
+
+        if (Input.GetButton("Fire2") && isOnSlope)
+        {
+            // Make the player slide down slopes when down is pressed
+            rigidBody.sharedMaterial = noFriction;
+            isSliding = true;
+            invincible = true;
+
+            // Kesken. En keksi mill� arvoilla tarkistan, onko laskeutuuko m�ki vasemmalle vai oikealle (Koodin tarkoitus on liu'uttaa mursu aina m�ke� alasp�in)
+            if (slopeNormalPerpendicular.y > 0)
+            {
+                rigidBody.AddForce(new Vector2(slideSpeed * slopeNormalPerpendicular.x * -2, slideSpeed * slopeNormalPerpendicular.y * -2));
+            } else if (slopeNormalPerpendicular.y < 0)
+            {
+                rigidBody.AddForce(new Vector2(slideSpeed * slopeNormalPerpendicular.x * 2, slideSpeed * slopeNormalPerpendicular.y * 2));
+            }
+            slideSfxTimer -= Time.deltaTime;
+            if (isSliding && slideSfxTimer < 0)
+            {
+                audioSource.PlayOneShot(slideSfx, 0.3F);
+                slideSfxTimer = 0.42f;
+            } 
+
+
+            if (!facingRight && slopeNormalPerpendicular.y > 0)
+            {
+                Flip();
+            } else if (facingRight && slopeNormalPerpendicular.y < 0)
+            {
+                Flip();
+            }
+            //rigidBody.velocity = new Vector2(slideSpeed * slopeNormalPerpendicular.x * -directionX, slideSpeed * slopeNormalPerpendicular.y * -directionX);
+        }
+        else if (isOnSlope && directionX == 0.0f)
+        {
+            // Add friction to prevent the player from sliding down when standing still on slopes
+            rigidBody.sharedMaterial = fullFriction;
+            isSliding = false;
+            invincible = false;
+            
+            //slideSfx.Stop();
+            
+        }
+        else
+        {
+            rigidBody.sharedMaterial = noFriction;
+            isSliding = false;
+            invincible = false;
+            //slideSfx.Stop();
+            if (!isSliding || isJumping)
+            {
+                //slideSfx.Stop();
+            }
         }
 
 
