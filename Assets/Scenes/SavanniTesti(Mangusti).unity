@@ -4757,6 +4757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5a0478216588c478b5b9b8f73b1efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTouchingWall: 0
+  isClimbing: 0
   rigidBody: {fileID: 1982386972}
 --- !u!114 &1982386985
 MonoBehaviour:
@@ -4784,13 +4786,16 @@ MonoBehaviour:
   pitGravity: 25
   noFriction: {fileID: 6200000, guid: cbc615e5eda28c94399c77f039c6293a, type: 2}
   fullFriction: {fileID: 6200000, guid: 2ebaa608a3818064a8cce3bf754cc48f, type: 2}
+  normalFriction: {fileID: 0}
   facingRight: 0
   onPlat: 0
   invincible: 0
+  onIce: 0
   isOnSlope: 0
-  jumpSfx: {fileID: 1982386976}
-  talkSfx: {fileID: 1982386976}
-  slideSfx: {fileID: 1982386976}
+  audioSource: {fileID: 1982386976}
+  jumpSfx: {fileID: 8300000, guid: 4e936042f160bdc429b1bc669c257aa6, type: 3}
+  talkSfx: {fileID: 8300000, guid: dcbdfc610677c8e4b92c7dfdecfe2a72, type: 3}
+  slideSfx: {fileID: 8300000, guid: d537006db221f5e48b534656c8f7be03, type: 3}
 --- !u!1 &2009419393
 GameObject:
   m_ObjectHideFlags: 0

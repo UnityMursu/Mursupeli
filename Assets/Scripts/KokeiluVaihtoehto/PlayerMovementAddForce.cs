@@ -169,27 +169,7 @@ public class PlayerMovementAddForce : MonoBehaviour
             {
                 if (IsGrounded() && !isOnSlope && !onPlat)
                 {
-                    rigidBody.AddForce(new Vector2(directionX * 30, 0.0f));
-                }
-                else if (IsGrounded() && isOnSlope && !onPlat)
-                {
-                    // Same movement speed on slopes as on normal ground
-                    rigidBody.AddForce(new Vector2(30 * slopeNormalPerpendicular.x * -directionX, 30 * slopeNormalPerpendicular.y * -directionX));
-                }
-                else if (!IsGrounded() && !onPlat)
-                {
-                    rigidBody.AddForce(new Vector2(directionX * 30 , rigidBody.velocity.y));
-                }
-                else if (onPlat)
-                {
-                    rigidBody.AddForce(new Vector2(directionX * 30, rigidBody.velocity.y));
-                }
-            }
-        else if (rigidBody.velocity.x > -movementSpeed && directionX < 0)
-        {
-            if (IsGrounded() && !isOnSlope && !onPlat)
-                {
-                    rigidBody.AddForce(new Vector2(directionX * 30, 0.0f));
+                    rigidBody.AddForce(new Vector2(directionX * 40, movementSpeed));
                 }
                 else if (IsGrounded() && isOnSlope && !onPlat)
                 {
@@ -198,14 +178,35 @@ public class PlayerMovementAddForce : MonoBehaviour
                 }
                 else if (!IsGrounded() && !onPlat)
                 {
-                    rigidBody.AddForce(new Vector2(directionX * 30 , rigidBody.velocity.y));
+                    rigidBody.AddForce(new Vector2(directionX * 40 , rigidBody.velocity.y));
                 }
                 else if (onPlat)
                 {
-                    rigidBody.AddForce(new Vector2(directionX * 30, rigidBody.velocity.y));
+                    rigidBody.AddForce(new Vector2(directionX * 40, rigidBody.velocity.y));
+                }
+            }
+        else if (rigidBody.velocity.x > -movementSpeed && directionX < 0)
+        {
+            if (IsGrounded() && !isOnSlope && !onPlat)
+                {
+                    rigidBody.AddForce(new Vector2(directionX * 40, 0.0f));
+                }
+                else if (IsGrounded() && isOnSlope && !onPlat)
+                {
+                    // Same movement speed on slopes as on normal ground
+                    rigidBody.AddForce(new Vector2(50 * slopeNormalPerpendicular.x * -directionX, 50 * slopeNormalPerpendicular.y * -directionX));
+                }
+                else if (!IsGrounded() && !onPlat)
+                {
+                    rigidBody.AddForce(new Vector2(directionX * 40 , rigidBody.velocity.y));
+                }
+                else if (onPlat)
+                {
+                    rigidBody.AddForce(new Vector2(directionX * 40, rigidBody.velocity.y));
                 }
         }
-
+        
+        slideSfxTimer -= Time.deltaTime;
         if (Input.GetButton("Fire2") && isOnSlope)
         {
             // Make the player slide down slopes when down is pressed
@@ -221,11 +222,10 @@ public class PlayerMovementAddForce : MonoBehaviour
             {
                 rigidBody.AddForce(new Vector2(slideSpeed * slopeNormalPerpendicular.x * 2, slideSpeed * slopeNormalPerpendicular.y * 2));
             }
-            slideSfxTimer -= Time.deltaTime;
             if (isSliding && slideSfxTimer < 0)
             {
                 audioSource.PlayOneShot(slideSfx, 0.3F);
-                slideSfxTimer = 0.42f;
+                slideSfxTimer = 0.41f;
             } 
 
 
