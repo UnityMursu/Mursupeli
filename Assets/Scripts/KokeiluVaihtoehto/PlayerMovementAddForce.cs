@@ -251,9 +251,9 @@ public class PlayerMovementAddForce : MonoBehaviour
             rigidBody.sharedMaterial = fullFriction;
             isSliding = false;
             invincible = false;
-            
+
             //slideSfx.Stop();
-            
+
         }
         else if (isOnSlope && (directionX < 0.0f || directionX > 0.0f) || onIce)
         {
