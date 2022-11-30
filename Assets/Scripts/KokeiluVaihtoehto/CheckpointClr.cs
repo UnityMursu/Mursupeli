@@ -7,6 +7,7 @@ public class CheckpointClr : MonoBehaviour
     private GameMaster gameMaster;
     private SpriteRenderer spriteRend;
     [SerializeField] private AudioSource checkpoint;
+    public int clams;
 
     private void Start()
     {
@@ -19,7 +20,10 @@ public class CheckpointClr : MonoBehaviour
             //tee if else jokaiselle movement scriptille tai muuta uusin toimimaan meressä
             gameMaster.lastCheckpointPosition = SaveManager.instance.activeSave.respawnPosition;
             PlayerMovementAddForce.instance.transform.position = gameMaster.lastCheckpointPosition;
+
+            clams = SaveManager.instance.activeSave.clams;
         }
+      
 
     }
 

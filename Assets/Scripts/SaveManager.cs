@@ -12,6 +12,7 @@ public class SaveManager : MonoBehaviour
     public SaveData activeSave;
 
     public bool hasLoaded;
+    
 
     private void Awake()
     {
@@ -98,5 +99,7 @@ public class SaveData
     public Vector3 respawnPosition;
 
     public bool enemyAlive;
+
+    public int clams;
     
 }

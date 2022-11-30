@@ -28,8 +28,10 @@ public class itemCollection : MonoBehaviour
         {
             Destroy(collision.gameObject);
             clams++;
-            clamText.text = clams.ToString();
-            clamStats.text = clams.ToString();
+            SaveManager.instance.activeSave.clams = clams;
+            clamText.text = SaveManager.instance.activeSave.clams.ToString();
+            clamStats.text = SaveManager.instance.activeSave.clams.ToString();
+            Debug.Log(SaveManager.instance.activeSave.clams);
             collectSfx.Play();
         }
         if (collision.gameObject.CompareTag("Powerup"))

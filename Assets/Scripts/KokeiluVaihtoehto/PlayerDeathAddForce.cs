@@ -14,6 +14,8 @@ public class PlayerDeathAddForce : MonoBehaviour
     private bool isDead;
     //use after Die()
     public int deathCounter;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip deathSound;
 
 
     private void Start()
@@ -46,16 +48,19 @@ public class PlayerDeathAddForce : MonoBehaviour
         GameObject trap = GameObject.FindWithTag("Trap");
         if (collision.gameObject.CompareTag("Enemy") && !playerScript.invincible)
         {
+                audioSource.PlayOneShot(deathSound, 2F);
                 player.GetComponent<PlayerMovementAddForce>().enabled = false;
                 isDead = true;
 
         }
         if (collision.gameObject.CompareTag("Enemy") && playerScript.invincible)
         {
+            audioSource.PlayOneShot(deathSound, 2F);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Trap"))
         {
+                audioSource.PlayOneShot(deathSound, 2F);
                 player.GetComponent<PlayerMovementAddForce>().enabled = false;
                 isDead = true;
         }
@@ -67,7 +72,7 @@ public class PlayerDeathAddForce : MonoBehaviour
         isDead = false;
         player.GetComponent<PlayerMovementAddForce>().enabled = true;
         _respawnTime = 3f;
-        LoadLastCheckpoint();
+         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
      }
 
     private void LoadLastCheckpoint()

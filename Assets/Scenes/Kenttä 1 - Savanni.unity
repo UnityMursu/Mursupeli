@@ -891,6 +891,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 992faced39a89584396434659542d161, type: 3}
+--- !u!82 &185215296 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8071351957064744920, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+  m_PrefabInstance: {fileID: 8071351957330188782}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &202684075
 GameObject:
   m_ObjectHideFlags: 0
@@ -9004,6 +9009,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 190467022256462750, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d5118e10ac36784bb8bdfb3836177d4, type: 3}
+    - target: {fileID: 190467022256462750, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 185215296}
     - target: {fileID: 2653003301960133213, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: iceText
       value: 

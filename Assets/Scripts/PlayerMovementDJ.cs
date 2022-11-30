@@ -22,6 +22,7 @@ public class PlayerMovementDJ : MonoBehaviour
     public bool facingRight;
     [SerializeField] private bool doubleJump;
     public float blindTime;
+    
 
     private enum movementState { idle, walk, jump, fall }
 
