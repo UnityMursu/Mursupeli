@@ -521,6 +521,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
       objectReference: {fileID: 1710645263}
@@ -1373,6 +1377,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
       objectReference: {fileID: 363430524}
@@ -1676,6 +1684,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
@@ -6502,6 +6514,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
       objectReference: {fileID: 1546921329}
@@ -7209,6 +7225,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
@@ -62667,6 +62687,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 190467022256462750, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d5118e10ac36784bb8bdfb3836177d4, type: 3}
+    - target: {fileID: 190467022256462750, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1591061180}
     - target: {fileID: 1259408273803037183, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: shoot
       value: 
@@ -62765,6 +62793,11 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: 981f91a4c60abda479d2148f340f161e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+--- !u!82 &1591061180 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8071351957064744920, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+  m_PrefabInstance: {fileID: 1591061179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1591771071
 GameObject:
   m_ObjectHideFlags: 0
@@ -66023,6 +66056,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
