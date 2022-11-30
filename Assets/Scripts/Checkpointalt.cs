@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Checkpointalt : MonoBehaviour
+public class Checkpointa : MonoBehaviour
 {
     private GameMaster gameMaster;
     private SpriteRenderer spriteRend;
     [SerializeField] private AudioSource checkpoint;
+    public int clams;
     public GameObject player;
 
     private void Start()
@@ -19,14 +20,11 @@ public class Checkpointalt : MonoBehaviour
         {
             //tee if else jokaiselle movement scriptille tai muuta uusin toimimaan meressä
             gameMaster.lastCheckpointPosition = SaveManager.instance.activeSave.respawnPosition;
-            PlayerMovementDJ.instance.transform.position = gameMaster.lastCheckpointPosition;
-            
-            
-
-            Debug.Log(SaveManager.instance.activeSave.clams);
-
+            PlayerMovementAddForce.instance.transform.position = gameMaster.lastCheckpointPosition;
             player.GetComponent<itemCollection>().clamText.text = SaveManager.instance.activeSave.clams.ToString(); 
+            clams = SaveManager.instance.activeSave.clams;
         }
+      
 
     }
 
@@ -43,7 +41,7 @@ public class Checkpointalt : MonoBehaviour
             gameMaster.lastCheckpointPosition = transform.position;
             
             SaveManager.instance.activeSave.respawnPosition = transform.position;
-            
+
             SaveManager.instance.activeSave.clams = player.GetComponent<itemCollection>().clams;
 
             SaveManager.instance.Save();
@@ -53,3 +51,4 @@ public class Checkpointalt : MonoBehaviour
         }
     }
 }
+

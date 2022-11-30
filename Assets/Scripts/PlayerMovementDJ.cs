@@ -22,7 +22,10 @@ public class PlayerMovementDJ : MonoBehaviour
     public bool facingRight;
     [SerializeField] private bool doubleJump;
     public float blindTime;
-    
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip jumpSfx;
+    [SerializeField] private AudioClip talkSfx;
+    [SerializeField] private AudioClip slideSfx;
 
     private enum movementState { idle, walk, jump, fall }
 

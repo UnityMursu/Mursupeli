@@ -8,7 +8,8 @@ public class CheckpointClr : MonoBehaviour
     private SpriteRenderer spriteRend;
     [SerializeField] private AudioSource checkpoint;
     public int clams;
-
+    public GameObject player;
+    
     private void Start()
     {
         gameMaster = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
@@ -20,7 +21,7 @@ public class CheckpointClr : MonoBehaviour
             //tee if else jokaiselle movement scriptille tai muuta uusin toimimaan meressä
             gameMaster.lastCheckpointPosition = SaveManager.instance.activeSave.respawnPosition;
             PlayerMovementAddForce.instance.transform.position = gameMaster.lastCheckpointPosition;
-
+            player.GetComponent<itemCollection>().clamText.text = SaveManager.instance.activeSave.clams.ToString(); 
             clams = SaveManager.instance.activeSave.clams;
         }
       
@@ -40,6 +41,8 @@ public class CheckpointClr : MonoBehaviour
             gameMaster.lastCheckpointPosition = transform.position;
             
             SaveManager.instance.activeSave.respawnPosition = transform.position;
+
+            SaveManager.instance.activeSave.clams = player.GetComponent<itemCollection>().clams;
 
             SaveManager.instance.Save();
 

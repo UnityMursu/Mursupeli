@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using UnityEngine.UI;
 
 public class SaveManager : MonoBehaviour
 {
@@ -101,5 +102,6 @@ public class SaveData
     public bool enemyAlive;
 
     public int clams;
+    
     
 }
