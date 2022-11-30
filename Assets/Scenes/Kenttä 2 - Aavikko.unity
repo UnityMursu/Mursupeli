@@ -521,6 +521,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
       objectReference: {fileID: 1710645263}
@@ -1373,6 +1377,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
       objectReference: {fileID: 363430524}
@@ -1676,6 +1684,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
@@ -6502,6 +6514,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
       objectReference: {fileID: 1546921329}
@@ -7209,6 +7225,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
@@ -66023,6 +66043,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1919418755}
     - target: {fileID: 8223258818349306162, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
       propertyPath: checkpoint
       value: 
