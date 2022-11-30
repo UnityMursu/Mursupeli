@@ -217,11 +217,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3113053663008095448, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6
+      value: 247.9
       objectReference: {fileID: 0}
     - target: {fileID: 3113053663008095448, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.45
+      value: 11.3
       objectReference: {fileID: 0}
     - target: {fileID: 3113053663008095448, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5237,6 +5237,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 397988479}
     m_Modifications:
+    - target: {fileID: 1253106481, guid: 536357f5eb63b0d48ada4305d87c2fef, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
+    - target: {fileID: 5875336518298597940, guid: 536357f5eb63b0d48ada4305d87c2fef, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 1662966275}
     - target: {fileID: 6706951118966247727, guid: 536357f5eb63b0d48ada4305d87c2fef, type: 3}
       propertyPath: m_RootOrder
       value: 2

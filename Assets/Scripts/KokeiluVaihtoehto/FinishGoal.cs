@@ -20,6 +20,7 @@ public class FinishGoal : MonoBehaviour
             /*without delay 
              CompeleLevel()*/
             goalSfx.Play();
+            SaveManager.instance.DeleteSaveData();
             Time.timeScale = 0;
             //shows stat screen - needs CanvasRenderer Stats from Canvas StatScreen
             stats.SetActive(true);
