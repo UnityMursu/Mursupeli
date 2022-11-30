@@ -2437,6 +2437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc8027023e813446b727667321776b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   checkpoint: {fileID: 1065964281}
   player: {fileID: 700129031}
 --- !u!82 &1065964281 stripped
@@ -2444,6 +2445,10 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: -6901989773816064400, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
   m_PrefabInstance: {fileID: 1030397690}
   m_PrefabAsset: {fileID: 0}
+=======
+  checkpoint: {fileID: 700129049}
+  player: {fileID: 700129031}
+>>>>>>> 284fc5e6f1426ac36f55bf49179b310e2d2caa26
 --- !u!1001 &1105161331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3175,7 +3180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc8027023e813446b727667321776b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   checkpoint: {fileID: 1459461023}
+=======
+  checkpoint: {fileID: 700129049}
+>>>>>>> 284fc5e6f1426ac36f55bf49179b310e2d2caa26
   player: {fileID: 700129031}
 --- !u!1001 &1490076942
 PrefabInstance:
