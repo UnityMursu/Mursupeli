@@ -71,7 +71,7 @@ public class PlayerDeathAlt : MonoBehaviour
         isDead = false;
         player.GetComponent<PlayerMovementDJ>().enabled = true;
         _respawnTime = 3f;
-            SaveManager.instance.Save();
+        SaveManager.instance.Save();
          SceneManager.LoadScene(SceneManager.GetActiveScene().name);
      }
 
