@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
     {
         //sets time back to normal and loads main menu
         Time.timeScale = 1;
+        SaveManager.instance.DeleteSaveData();
         SceneManager.LoadScene(sceneName);
     }
 
