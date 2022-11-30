@@ -20,7 +20,6 @@ public class itemCollection : MonoBehaviour
     {
         isPowerUp = false;
         ammo = 0;
-        clams = SaveManager.instance.activeSave.clams;
     }    
 
     private void OnTriggerEnter2D(Collider2D collision)

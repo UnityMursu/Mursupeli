@@ -20,7 +20,8 @@ public class Checkpointalt : MonoBehaviour
             //tee if else jokaiselle movement scriptille tai muuta uusin toimimaan meressä
             gameMaster.lastCheckpointPosition = SaveManager.instance.activeSave.respawnPosition;
             PlayerMovementDJ.instance.transform.position = gameMaster.lastCheckpointPosition;
-            player.GetComponent<itemCollection>().clamText.text = SaveManager.instance.activeSave.clams.ToString(); 
+            player.GetComponent<itemCollection>().clamText.text = SaveManager.instance.activeSave.clams.ToString();
+            player.GetComponent<itemCollection>().clams = SaveManager.instance.activeSave.clams;
         }
       
 
@@ -37,10 +38,10 @@ public class Checkpointalt : MonoBehaviour
             spriteRend.color = Color.green;
             
             gameMaster.lastCheckpointPosition = transform.position;
-            
-            SaveManager.instance.activeSave.respawnPosition = transform.position;
 
             SaveManager.instance.activeSave.clams = player.GetComponent<itemCollection>().clams;
+            
+            SaveManager.instance.activeSave.respawnPosition = transform.position;
 
             SaveManager.instance.Save();
 

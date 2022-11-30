@@ -9445,6 +9445,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 185215296}
+    - target: {fileID: 1311873667510782280, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
     - target: {fileID: 2653003301960133213, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: iceText
       value: 
