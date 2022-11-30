@@ -217,11 +217,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3113053663008095448, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.48
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 3113053663008095448, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.28
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 3113053663008095448, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_LocalPosition.z
@@ -349,7 +349,7 @@ MonoBehaviour:
   version: 5
   radius: 2.54
   height: 2
-  canMove: 0
+  canMove: 1
   maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 0}
+  target: {fileID: 700129044}
 --- !u!61 &368947057
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2437,6 +2437,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc8027023e813446b727667321776b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoint: {fileID: 1065964281}
+  player: {fileID: 700129031}
+--- !u!82 &1065964281 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -6901989773816064400, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
+  m_PrefabInstance: {fileID: 1030397690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1105161331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3168,6 +3175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc8027023e813446b727667321776b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoint: {fileID: 1459461023}
+  player: {fileID: 700129031}
 --- !u!1001 &1490076942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5899,7 +5908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4947796949142807888, guid: 77279e6926a580342822472b74a1b4db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.3
+      value: 6.9
       objectReference: {fileID: 0}
     - target: {fileID: 4947796949142807888, guid: 77279e6926a580342822472b74a1b4db, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5911,7 +5920,7 @@ PrefabInstance:
       objectReference: {fileID: 700129044}
     - target: {fileID: 4947796949476734467, guid: 77279e6926a580342822472b74a1b4db, type: 3}
       propertyPath: shootSpeed
-      value: 1500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4947796949476734467, guid: 77279e6926a580342822472b74a1b4db, type: 3}
       propertyPath: BlackScreen
