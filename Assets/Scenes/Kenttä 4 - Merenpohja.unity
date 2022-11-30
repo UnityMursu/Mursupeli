@@ -217,11 +217,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3113053663008095448, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 247.9
+      value: 34.55
       objectReference: {fileID: 0}
     - target: {fileID: 3113053663008095448, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.3
+      value: 9.06
       objectReference: {fileID: 0}
     - target: {fileID: 3113053663008095448, guid: 347a1e8bee7b67f45880f906274a8c62, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2422,6 +2422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpoint: {fileID: 1065964281}
+  player: {fileID: 700129031}
 --- !u!82 &1065964281 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: -6901989773816064400, guid: 59ef22adbab9f2d4e9f8cc04c46bf598, type: 3}
@@ -3159,6 +3160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpoint: {fileID: 1459461023}
+  player: {fileID: 700129031}
 --- !u!1001 &1490076942
 PrefabInstance:
   m_ObjectHideFlags: 0

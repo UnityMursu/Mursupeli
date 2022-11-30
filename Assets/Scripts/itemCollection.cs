@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class itemCollection : MonoBehaviour
 {
-    private int clams = 0;
+    public int clams;
     public bool isPowerUp;
     public int ammo;
 
-    [SerializeField] private Text clamText;
+    [SerializeField] public Text clamText;
     [SerializeField] public Text iceText;
     [SerializeField] private AudioSource collectSfx;
     [SerializeField] private AudioSource powerup;
@@ -20,7 +20,8 @@ public class itemCollection : MonoBehaviour
     {
         isPowerUp = false;
         ammo = 0;
-    }
+        clams = SaveManager.instance.activeSave.clams;
+    }    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,10 +29,9 @@ public class itemCollection : MonoBehaviour
         {
             Destroy(collision.gameObject);
             clams++;
-            SaveManager.instance.activeSave.clams = clams;
-            clamText.text = SaveManager.instance.activeSave.clams.ToString();
-            clamStats.text = SaveManager.instance.activeSave.clams.ToString();
-            Debug.Log(SaveManager.instance.activeSave.clams);
+            clamText.text = clams.ToString();
+            clamStats.text = clams.ToString();
+            
             collectSfx.Play();
         }
         if (collision.gameObject.CompareTag("Powerup"))
