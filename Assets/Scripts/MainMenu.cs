@@ -24,6 +24,12 @@ public class MainMenu : MonoBehaviour {
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
     }
+
+     public void PlayGameJaatikko ()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 5);
+    }
+    
     
     public void ExitGame ()
     {

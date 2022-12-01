@@ -26,8 +26,13 @@ public class PlayerMovementDJ : MonoBehaviour
     [SerializeField] private AudioClip jumpSfx;
     [SerializeField] private AudioClip talkSfx;
     [SerializeField] private AudioClip slideSfx;
+     private float talkSfxTimer;
+     private float jumpSfxTimer;
+     [SerializeField] private AudioSource MasterVolume;
+     
 
     private enum movementState { idle, walk, jump, fall }
+    
 
     private void Awake()
     {
@@ -42,6 +47,7 @@ public class PlayerMovementDJ : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         facingRight = true;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -75,16 +81,22 @@ public class PlayerMovementDJ : MonoBehaviour
                 jumpTimeCounter = jumpTime;
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
                 doubleJump = !doubleJump;
+                audioSource.PlayOneShot(jumpSfx, 0.7F);
+                
             }
         }
 
+        jumpSfxTimer -= Time.deltaTime;
         //jump a
         if (Input.GetButtonDown("Jump") && IsGrounded() && Input.GetAxisRaw("Vertical") == 0)
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+            audioSource.PlayOneShot(jumpSfx, 0.7F);
         }
+
+       
 
         animationState();
         playerFlip();
@@ -108,6 +120,13 @@ public class PlayerMovementDJ : MonoBehaviour
             {
                 isJumping = false;
             }
+
+              talkSfxTimer -= Time.deltaTime;
+        if (Input.GetButton("Fire3") && talkSfxTimer < 0)
+        {
+            audioSource.PlayOneShot(talkSfx, 0.3F);
+            talkSfxTimer = 1f;
+        }
             
     }
 

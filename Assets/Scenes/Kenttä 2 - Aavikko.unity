@@ -62687,6 +62687,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 190467022256462750, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d5118e10ac36784bb8bdfb3836177d4, type: 3}
+    - target: {fileID: 190467022256462750, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1591061180}
     - target: {fileID: 1259408273803037183, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: shoot
       value: 
@@ -62695,6 +62703,10 @@ PrefabInstance:
       propertyPath: powerdown
       value: 
       objectReference: {fileID: 1919418771}
+    - target: {fileID: 1311873667510782280, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
     - target: {fileID: 2653003301960133213, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: iceText
       value: 
@@ -62711,6 +62723,10 @@ PrefabInstance:
       propertyPath: clamStats
       value: 
       objectReference: {fileID: 1755163899}
+    - target: {fileID: 4023941361426594173, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
     - target: {fileID: 4330433101183986854, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -62755,6 +62771,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5442366668485324322, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
     - target: {fileID: 6447478128181667518, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
       propertyPath: m_Size.x
       value: 1.0426092
@@ -62783,8 +62803,17 @@ PrefabInstance:
       propertyPath: normalFriction
       value: 
       objectReference: {fileID: 6200000, guid: 981f91a4c60abda479d2148f340f161e, type: 2}
+    - target: {fileID: 9106341912918995702, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+--- !u!82 &1591061180 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8071351957064744920, guid: 963bd9f76d9e96e44ab6ab4c1cd8f3b1, type: 3}
+  m_PrefabInstance: {fileID: 1591061179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1591771071
 GameObject:
   m_ObjectHideFlags: 0
@@ -64502,7 +64531,7 @@ AudioSource:
   m_GameObject: {fileID: 1919418755}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
   m_audioClip: {fileID: 8300000, guid: 049e6cf800ee6b942b6ed68d079a9c34, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.134
@@ -64598,7 +64627,7 @@ AudioSource:
   m_GameObject: {fileID: 1919418755}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
   m_audioClip: {fileID: 8300000, guid: 95f61a63ebfdb7243b6f65d610035840, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.119
@@ -64694,7 +64723,7 @@ AudioSource:
   m_GameObject: {fileID: 1919418755}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c6943f97130311e479e8d635b3d3a287, type: 2}
   m_audioClip: {fileID: 8300000, guid: 53bf91d21dcbebf41a65d60b061383ce, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.141
