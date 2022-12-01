@@ -51,7 +51,6 @@ public class PlayerMovementAddForce : MonoBehaviour
     private float jumpSfxTimer;
     private float slideSfxTimer;
     private float talkSfxTimer;
-    public AudioMixer audioMixer;
 
     // Start is called before the first frame update
     void Start()
