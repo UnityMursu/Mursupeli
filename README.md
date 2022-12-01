@@ -27,3 +27,6 @@ Sliding hills : e
 shoot after ice powerup: f  double jump only underwater level
 
 Press q for surprise sound
+
+
+If project is continued, main focus will be in clarifying graphics, fixing bugs, adding tutorial screens and smoothening the gameplay
