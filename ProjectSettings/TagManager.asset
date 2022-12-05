@@ -17,6 +17,7 @@ TagManager:
   - Pit
   - Water
   - Platform
+  - Wall
   layers:
   - Default
   - TransparentFX

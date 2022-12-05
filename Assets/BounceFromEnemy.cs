@@ -16,6 +16,7 @@ public class BounceFromEnemy : MonoBehaviour
 
         if (collision.GetComponent<EnemyWeakspot>()) {
             Debug.Log("bouncy");
+            bounceForce = 1000;
             bounceSfx.Play();
             playerBot.velocity = new Vector2(playerBot.velocity.x, 0f);
             playerBot.AddForce(Vector2.up * bounceForce);
@@ -25,6 +26,7 @@ public class BounceFromEnemy : MonoBehaviour
         if (collision.GetComponent<EnemyBouncespot>())
         {
             Debug.Log("bouncy");
+            bounceForce = 700;
             bounceSfx.Play();
             playerBot.velocity = new Vector2(playerBot.velocity.x, 0f);
             playerBot.AddForce(Vector2.up * bounceForce);

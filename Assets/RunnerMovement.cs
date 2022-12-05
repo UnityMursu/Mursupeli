@@ -18,6 +18,7 @@ public class RunnerMovement : MonoBehaviour
     [SerializeField] public float normalGravity = 3f;
     private bool isJumping;
     public bool facingRight;
+    public bool goinRight;
     private enum movementState { idle, walk, jump, fall }
     [SerializeField] private AudioSource jumpSfx;
 
@@ -29,6 +30,8 @@ public class RunnerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         facingRight = true;
+        goinRight = true;
+        rigidBody.gravityScale = normalGravity;
 
     }
 
@@ -36,7 +39,15 @@ public class RunnerMovement : MonoBehaviour
     void Update()
     {
         directionX = Input.GetAxisRaw("Horizontal");
-        rigidBody.velocity = new Vector2(movementSpeed, rigidBody.velocity.y);
+        if (goinRight)
+        {
+            rigidBody.velocity = new Vector2(movementSpeed, rigidBody.velocity.y);
+        }
+        else
+        {
+            rigidBody.velocity = new Vector2(-movementSpeed, rigidBody.velocity.y);
+        }
+        
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -50,8 +61,38 @@ public class RunnerMovement : MonoBehaviour
         }
 
         animationState();
- 
+
+        if (Input.GetButton("Jump") && isJumping == true)
+        {
+            if (jumpTimeCounter > 0)
+            {
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce / 2);
+                jumpTimeCounter -= Time.deltaTime;
+            }
+
+            else
+            {
+                isJumping = false;
+            }
+
+        }
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            isJumping = false;
+        }
+
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            goinRight = !goinRight;
+            facingRight = !facingRight;
+        }
+    }
+
 
     private bool IsGrounded()
     {
@@ -70,18 +111,14 @@ public class RunnerMovement : MonoBehaviour
         if (rigidBody.velocity.x > 0f)
         {
             state = movementState.walk;
-            if (!facingRight)
-            {
-                spriteRenderer.flipX = false;
-            }  
+            spriteRenderer.flipX = false;
+     
         }
         else if (rigidBody.velocity.x < 0f)
         {
             state = movementState.walk;
-            if (facingRight)
-            {
-                spriteRenderer.flipX = true;
-            }
+            spriteRenderer.flipX = true;
+            
         }
         else
         {

@@ -10,5 +10,13 @@ public class Destroyer : MonoBehaviour
         {
             Destroy(info.transform.parent.gameObject);
         }
+        if (info.gameObject.CompareTag("Trap"))
+        {
+            Destroy(info.transform.parent.gameObject);
+        }
+        if (info.gameObject.CompareTag("Water"))
+        {
+            Destroy(info.transform.parent.gameObject);
+        }
     }
 }

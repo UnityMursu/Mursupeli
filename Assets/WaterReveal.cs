@@ -6,7 +6,6 @@ using UnityEngine.Tilemaps;
 public class WaterReveal : MonoBehaviour
 {
     private AudioLowPassFilter Underwater;
-    public GameObject Music;
     public float fadeOutTime = 1f;
     [SerializeField] private AudioSource Splash;
     // Start is called before the first frame update
@@ -14,6 +13,7 @@ public class WaterReveal : MonoBehaviour
     {
         GameObject player = GameObject.FindWithTag("Player");
         GameObject water = GameObject.FindWithTag("Water");
+        GameObject Music = GameObject.Find("Music");
         Underwater = Music.GetComponent<AudioLowPassFilter>();
 
     }
